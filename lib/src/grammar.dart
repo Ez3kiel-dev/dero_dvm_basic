@@ -279,9 +279,8 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
   Parser literal() =>
       ref0(stringLexicalToken).flatten() | ref0(numberLexicalToken);
 
-  Parser identifier() =>
-      ref1(tokenSensitive, ref0(identifierLexicalToken))
-          .skip(before: ref0(reservedWords).end().not());
+  Parser identifier() => ref1(tokenSensitive, ref0(identifierLexicalToken))
+      .skip(before: ref0(reservedWords).end().not());
 
   Parser uint64Type() => ref1(tokenSensitive, 'Uint64');
 

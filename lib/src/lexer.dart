@@ -159,8 +159,7 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
       });
 
   @override
-  Parser identifier() =>
-      super.identifier().map((value) {
+  Parser identifier() => super.identifier().map((value) {
         return Identifier((value as Token).input);
       });
 
