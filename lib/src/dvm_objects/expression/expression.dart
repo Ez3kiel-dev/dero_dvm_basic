@@ -1,6 +1,6 @@
 import 'package:dero_dvm_basic/dero_dvm_basic.dart';
 
-// TODO: doc
+/// Expression tree.
 class Expression extends ExpressionNode {
   Operator? operator;
   Expression? exp2;
@@ -33,6 +33,7 @@ class Expression extends ExpressionNode {
     }
   }
 
+  /// Returns leaf node.
   Expression traverse() {
     Expression res;
     if (exp2 == null) {
@@ -44,6 +45,7 @@ class Expression extends ExpressionNode {
   }
 }
 
+/// Type of [Expression] node value.
 class ExpressionNode extends DvmValue {
   final DvmValue value;
 
@@ -55,6 +57,7 @@ class ExpressionNode extends DvmValue {
   }
 }
 
+/// DVM-BASIC operator.
 enum Operator {
   assign('='),
   add('+'),
@@ -82,6 +85,7 @@ enum Operator {
   final String code;
 }
 
+/// @nodoc
 Operator getOperator(String op) {
   op = op.trim();
   switch (op) {

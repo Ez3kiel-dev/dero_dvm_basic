@@ -28,6 +28,7 @@ enum DvmType {
   }
 }
 
+/// @nodoc
 DvmType toDvmType(String type) {
   switch (type) {
     case 'String':

@@ -38,20 +38,20 @@ mixin _$DBasicValue {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(DvmUint64 value) uint64,
-    required TResult Function(DvmString value) string,
+    required TResult Function(DBasicUint64 value) uint64,
+    required TResult Function(DBasicString value) string,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DvmUint64 value)? uint64,
-    TResult? Function(DvmString value)? string,
+    TResult? Function(DBasicUint64 value)? uint64,
+    TResult? Function(DBasicString value)? string,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(DvmUint64 value)? uint64,
-    TResult Function(DvmString value)? string,
+    TResult Function(DBasicUint64 value)? uint64,
+    TResult Function(DBasicString value)? string,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -95,22 +95,22 @@ class _$DBasicValueCopyWithImpl<$Res, $Val extends DBasicValue>
 }
 
 /// @nodoc
-abstract class _$$DvmUint64CopyWith<$Res>
+abstract class _$$DBasicUint64CopyWith<$Res>
     implements $DBasicValueCopyWith<$Res> {
-  factory _$$DvmUint64CopyWith(
-          _$DvmUint64 value, $Res Function(_$DvmUint64) then) =
-      __$$DvmUint64CopyWithImpl<$Res>;
+  factory _$$DBasicUint64CopyWith(
+          _$DBasicUint64 value, $Res Function(_$DBasicUint64) then) =
+      __$$DBasicUint64CopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DvmType type, int valueUint64});
 }
 
 /// @nodoc
-class __$$DvmUint64CopyWithImpl<$Res>
-    extends _$DBasicValueCopyWithImpl<$Res, _$DvmUint64>
-    implements _$$DvmUint64CopyWith<$Res> {
-  __$$DvmUint64CopyWithImpl(
-      _$DvmUint64 _value, $Res Function(_$DvmUint64) _then)
+class __$$DBasicUint64CopyWithImpl<$Res>
+    extends _$DBasicValueCopyWithImpl<$Res, _$DBasicUint64>
+    implements _$$DBasicUint64CopyWith<$Res> {
+  __$$DBasicUint64CopyWithImpl(
+      _$DBasicUint64 _value, $Res Function(_$DBasicUint64) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$DvmUint64CopyWithImpl<$Res>
     Object? type = null,
     Object? valueUint64 = null,
   }) {
-    return _then(_$DvmUint64(
+    return _then(_$DBasicUint64(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -134,8 +134,8 @@ class __$$DvmUint64CopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DvmUint64 extends DvmUint64 {
-  _$DvmUint64({this.type = DvmType.uint64, required this.valueUint64})
+class _$DBasicUint64 extends DBasicUint64 {
+  _$DBasicUint64({this.type = DvmType.uint64, required this.valueUint64})
       : super._();
 
   @override
@@ -153,7 +153,7 @@ class _$DvmUint64 extends DvmUint64 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DvmUint64 &&
+            other is _$DBasicUint64 &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.valueUint64, valueUint64) ||
                 other.valueUint64 == valueUint64));
@@ -165,8 +165,8 @@ class _$DvmUint64 extends DvmUint64 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DvmUint64CopyWith<_$DvmUint64> get copyWith =>
-      __$$DvmUint64CopyWithImpl<_$DvmUint64>(this, _$identity);
+  _$$DBasicUint64CopyWith<_$DBasicUint64> get copyWith =>
+      __$$DBasicUint64CopyWithImpl<_$DBasicUint64>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -202,8 +202,8 @@ class _$DvmUint64 extends DvmUint64 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(DvmUint64 value) uint64,
-    required TResult Function(DvmString value) string,
+    required TResult Function(DBasicUint64 value) uint64,
+    required TResult Function(DBasicString value) string,
   }) {
     return uint64(this);
   }
@@ -211,8 +211,8 @@ class _$DvmUint64 extends DvmUint64 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DvmUint64 value)? uint64,
-    TResult? Function(DvmString value)? string,
+    TResult? Function(DBasicUint64 value)? uint64,
+    TResult? Function(DBasicString value)? string,
   }) {
     return uint64?.call(this);
   }
@@ -220,8 +220,8 @@ class _$DvmUint64 extends DvmUint64 {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(DvmUint64 value)? uint64,
-    TResult Function(DvmString value)? string,
+    TResult Function(DBasicUint64 value)? uint64,
+    TResult Function(DBasicString value)? string,
     required TResult orElse(),
   }) {
     if (uint64 != null) {
@@ -231,37 +231,37 @@ class _$DvmUint64 extends DvmUint64 {
   }
 }
 
-abstract class DvmUint64 extends DBasicValue {
-  factory DvmUint64({final DvmType type, required final int valueUint64}) =
-      _$DvmUint64;
-  DvmUint64._() : super._();
+abstract class DBasicUint64 extends DBasicValue {
+  factory DBasicUint64({final DvmType type, required final int valueUint64}) =
+      _$DBasicUint64;
+  DBasicUint64._() : super._();
 
   @override
   DvmType get type;
   int get valueUint64;
   @override
   @JsonKey(ignore: true)
-  _$$DvmUint64CopyWith<_$DvmUint64> get copyWith =>
+  _$$DBasicUint64CopyWith<_$DBasicUint64> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DvmStringCopyWith<$Res>
+abstract class _$$DBasicStringCopyWith<$Res>
     implements $DBasicValueCopyWith<$Res> {
-  factory _$$DvmStringCopyWith(
-          _$DvmString value, $Res Function(_$DvmString) then) =
-      __$$DvmStringCopyWithImpl<$Res>;
+  factory _$$DBasicStringCopyWith(
+          _$DBasicString value, $Res Function(_$DBasicString) then) =
+      __$$DBasicStringCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DvmType type, String valueString});
 }
 
 /// @nodoc
-class __$$DvmStringCopyWithImpl<$Res>
-    extends _$DBasicValueCopyWithImpl<$Res, _$DvmString>
-    implements _$$DvmStringCopyWith<$Res> {
-  __$$DvmStringCopyWithImpl(
-      _$DvmString _value, $Res Function(_$DvmString) _then)
+class __$$DBasicStringCopyWithImpl<$Res>
+    extends _$DBasicValueCopyWithImpl<$Res, _$DBasicString>
+    implements _$$DBasicStringCopyWith<$Res> {
+  __$$DBasicStringCopyWithImpl(
+      _$DBasicString _value, $Res Function(_$DBasicString) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,7 +270,7 @@ class __$$DvmStringCopyWithImpl<$Res>
     Object? type = null,
     Object? valueString = null,
   }) {
-    return _then(_$DvmString(
+    return _then(_$DBasicString(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -285,8 +285,8 @@ class __$$DvmStringCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DvmString extends DvmString {
-  _$DvmString({this.type = DvmType.string, required this.valueString})
+class _$DBasicString extends DBasicString {
+  _$DBasicString({this.type = DvmType.string, required this.valueString})
       : super._();
 
   @override
@@ -304,7 +304,7 @@ class _$DvmString extends DvmString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DvmString &&
+            other is _$DBasicString &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.valueString, valueString) ||
                 other.valueString == valueString));
@@ -316,8 +316,8 @@ class _$DvmString extends DvmString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DvmStringCopyWith<_$DvmString> get copyWith =>
-      __$$DvmStringCopyWithImpl<_$DvmString>(this, _$identity);
+  _$$DBasicStringCopyWith<_$DBasicString> get copyWith =>
+      __$$DBasicStringCopyWithImpl<_$DBasicString>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -353,8 +353,8 @@ class _$DvmString extends DvmString {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(DvmUint64 value) uint64,
-    required TResult Function(DvmString value) string,
+    required TResult Function(DBasicUint64 value) uint64,
+    required TResult Function(DBasicString value) string,
   }) {
     return string(this);
   }
@@ -362,8 +362,8 @@ class _$DvmString extends DvmString {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DvmUint64 value)? uint64,
-    TResult? Function(DvmString value)? string,
+    TResult? Function(DBasicUint64 value)? uint64,
+    TResult? Function(DBasicString value)? string,
   }) {
     return string?.call(this);
   }
@@ -371,8 +371,8 @@ class _$DvmString extends DvmString {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(DvmUint64 value)? uint64,
-    TResult Function(DvmString value)? string,
+    TResult Function(DBasicUint64 value)? uint64,
+    TResult Function(DBasicString value)? string,
     required TResult orElse(),
   }) {
     if (string != null) {
@@ -382,16 +382,16 @@ class _$DvmString extends DvmString {
   }
 }
 
-abstract class DvmString extends DBasicValue {
-  factory DvmString({final DvmType type, required final String valueString}) =
-      _$DvmString;
-  DvmString._() : super._();
+abstract class DBasicString extends DBasicValue {
+  factory DBasicString(
+      {final DvmType type, required final String valueString}) = _$DBasicString;
+  DBasicString._() : super._();
 
   @override
   DvmType get type;
   String get valueString;
   @override
   @JsonKey(ignore: true)
-  _$$DvmStringCopyWith<_$DvmString> get copyWith =>
+  _$$DBasicStringCopyWith<_$DBasicString> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'identifier.freezed.dart';
 
-/// @nodoc
+/// DVM-BASIC identifier.
 @freezed
 class Identifier extends DvmValue with _$Identifier {
   Identifier._();

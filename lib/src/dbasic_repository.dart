@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:dero_dvm_basic/dero_dvm_basic.dart';
 import 'package:dero_dvm_basic/src/exceptions/dbasic_repository_exceptions.dart';
-import 'package:path/path.dart' as p;
 import 'package:petitparser/context.dart';
 
 import 'exceptions/dbasic_exceptions.dart';
@@ -15,33 +12,12 @@ class DBasicRepository {
   DBasicSmartContract? _sc;
   Map<String, DBasicValue> storage = {};
 
-  DBasicRepository.loadSmartContractFromString(this.codeUnit,
+  DBasicRepository.loadSmartContract(this.codeUnit,
       [String? smartContractName]) {
     _parseSmartContract(smartContractName);
   }
 
-  // Loads a smart contract file, given a file (of type `bas`) path.
-  static Future<DBasicRepository> loadSmartContractFromFile(
-      String filePath) async {
-    if (p.extension(filePath).toLowerCase() != '.bas') {
-      throw DBasicRepositoryException(
-          'The file format is invalid, BAS file extension required (e.g. "asset.bas")');
-    }
-
-    String data;
-    try {
-      File file = File(filePath);
-      data = await file.readAsString();
-    } catch (e) {
-      throw DBasicRepositoryException('Fail to load smart contract file');
-    }
-
-    var name = p.basenameWithoutExtension(filePath);
-
-    return DBasicRepository.loadSmartContractFromString(data, name);
-  }
-
-  /// @nodoc
+  /// Returns the smart contract.
   DBasicSmartContract get sc {
     var sc = _sc;
     if (sc == null) {
@@ -50,7 +26,7 @@ class DBasicRepository {
     return sc;
   }
 
-  /// Get all functions defined in the SC.
+  /// Returns all functions defined in the SC.
   List<DBasicFunction> get functions {
     List<DBasicFunction> functions = _sc?.functions.values.toList() ?? [];
     return functions;

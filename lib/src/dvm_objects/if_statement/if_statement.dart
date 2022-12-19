@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'if_statement.freezed.dart';
 
-/// IF statement representation.
+/// DVM-BASIC IF statement.
 @freezed
 class IfStatement extends DvmObject with _$IfStatement {
   IfStatement._();

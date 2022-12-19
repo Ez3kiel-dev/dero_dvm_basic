@@ -26,10 +26,10 @@ class DBasicFunction extends DvmObject with _$DBasicFunction {
     return '${functionSignature.toDBasicCode()}\n${res.join('\n')}\nEnd Function';
   }
 
-  /// Get all the instructions.
+  /// Returns all the instructions.
   List<DvmObject>? get dvmObjects => lines?.values.toList();
 
-  /// Get the instruction, given its number.
+  /// Returns the instruction, given its number.
   DvmObject? getInstruction(int number) {
     if (lines != null && lineNumbers != null) {
       bool numberExist = lineNumbers?.contains(number) ?? false;

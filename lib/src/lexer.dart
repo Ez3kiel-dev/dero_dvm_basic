@@ -1,7 +1,7 @@
 import 'package:dero_dvm_basic/dero_dvm_basic.dart';
 import 'package:petitparser/petitparser.dart';
 
-// Transform the first analysis pass into a useful data structure.
+/// Transform the first analysis pass into a useful data structure.
 class DeroBasicLexer extends DeroBasicGrammarDefinition {
   @override
   Parser functionExpression() => super.functionExpression().map((values) {
@@ -231,6 +231,7 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   // Utility functions.
   // -----------------------------------------------------------------
 
+  /// Converts parsing expression result into [Expression].
   dynamic _buildExpression(List rawExp) {
     Expression finalExp;
     Expression? tempExp;

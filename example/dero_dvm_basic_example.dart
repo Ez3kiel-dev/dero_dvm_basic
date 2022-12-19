@@ -35,8 +35,7 @@ End Function
 Future<void> main() async {
   DBasicRepository dBasicRepository;
   try {
-    dBasicRepository =
-        DBasicRepository.loadSmartContractFromString(nameServiceSC);
+    dBasicRepository = DBasicRepository.loadSmartContract(nameServiceSC);
   } on DBasicParsingException catch (exception) {
     // Print the position in the buffer where parsing failed
     print(exception.position);
@@ -47,13 +46,14 @@ Future<void> main() async {
     print(e);
   }
 
-  // It's It is also possible to load a contract from a BAS file
+  // Loading a contract from a BAS file
   var filePath = p.join(
       Directory.current.path, 'playground/smart_contracts', 'lottery.bas');
 
   try {
-    dBasicRepository =
-        await DBasicRepository.loadSmartContractFromFile(filePath);
+    File file = File(filePath);
+    String data = await file.readAsString();
+    dBasicRepository = DBasicRepository.loadSmartContract(data);
 
     // Get all functions defined in the SC
     List<DBasicFunction> functions = dBasicRepository.functions;

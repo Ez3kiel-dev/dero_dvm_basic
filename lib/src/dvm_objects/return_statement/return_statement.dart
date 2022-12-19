@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'return_statement.freezed.dart';
 
-/// RETURN statement representation.
+/// DVM-BASIC RETURN statement.
 @freezed
 class ReturnStatement extends DvmObject with _$ReturnStatement {
   ReturnStatement._();

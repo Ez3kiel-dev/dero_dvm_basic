@@ -3,20 +3,22 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dbasic_value.freezed.dart';
 
-/// A DVM-BASIC value.
+/// DVM-BASIC value.
 @freezed
 class DBasicValue extends DvmValue with _$DBasicValue {
   DBasicValue._();
 
+  /// DVM-BASIC Uint64 value.
   factory DBasicValue.uint64({
     @Default(DvmType.uint64) DvmType type,
     required int valueUint64,
-  }) = DvmUint64;
+  }) = DBasicUint64;
 
+  /// DVM-BASIC String value.
   factory DBasicValue.string({
     @Default(DvmType.string) DvmType type,
     required String valueString,
-  }) = DvmString;
+  }) = DBasicString;
 
   @override
   String toDBasicCode() {

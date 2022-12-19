@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'let_statement.freezed.dart';
 
-/// LET statement representation.
+/// DVM-BASIC LET statement.
 @freezed
 class LetStatement extends DvmObject with _$LetStatement {
   LetStatement._();

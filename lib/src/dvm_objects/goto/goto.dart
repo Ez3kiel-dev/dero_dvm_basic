@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'goto.freezed.dart';
 
-/// @nodoc
+/// DVM-BASIC goto.
 @freezed
 class Goto extends DvmObject with _$Goto {
   Goto._();

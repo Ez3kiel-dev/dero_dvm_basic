@@ -1,5 +1,5 @@
 name: dero_dvm_basic
-description: Simple DVM-Basic (DERO) parser.
+description: DVM-BASIC parser to transform Dero's smart contract into a data structure.
 version: 0.0.1
 
 repository: https://github.com/Ez3kiel-dev/dero_dvm_basic

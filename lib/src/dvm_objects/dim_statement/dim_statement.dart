@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dim_statement.freezed.dart';
 
-/// DIM statement representation.
+/// DVM-BASIC DIM statement.
 @freezed
 class DimStatement extends DvmObject with _$DimStatement {
   DimStatement._();

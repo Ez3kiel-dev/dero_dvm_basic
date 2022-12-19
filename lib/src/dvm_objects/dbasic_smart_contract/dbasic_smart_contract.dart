@@ -65,6 +65,11 @@ class DBasicSmartContract extends DvmObject with _$DBasicSmartContract {
     return res;
   }
 
+  /// Adds a function or replaces it if it already exists.
+  void addFunction(DBasicFunction function) {
+    functions[function.functionSignature.id.name] = function;
+  }
+
   /// Pretty prints all function signatures.
   void prettyPrintFunctionSignatures() {
     for (var func in functions.values) {

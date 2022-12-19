@@ -22,9 +22,12 @@ Future<void> main() async {
   p.join(Directory.current.path, 'smart_contracts', 'token.bas');
 
   try {
-    var dbasicRepository = await DbasicRepository.loadSmartContractFromFile(filePath);
+    File file = File(filePath);
+    String data = await file.readAsString();
+    
+    var dBasicRepository = DBasicRepository.loadSmartContract(data);
 
-    dbasicRepository.sc.prettyPrintFunctionSignatures();
+    dBasicRepository.sc.prettyPrintFunctionSignatures();
     // Console output:
     // Function: Lottery - params : {} - returnType : DvmType.uint64
     // Function: Initialize - params : {} - returnType : DvmType.uint64
