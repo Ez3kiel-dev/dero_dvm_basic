@@ -47,14 +47,21 @@ Once the parsing is successful, we can retrieve each function of the SC and brow
 numbered execution lines.
 
 ```dart
-var dbasicRepository = await DbasicRepository.loadSmartContractFromFile(filePath);
+var dbasicRepository = DbasicRepository.loadSmartContract(filePath);
 
 DBasicFunction register = dbasicRepository.sc.getFunction('Register');
 
-List<DvmObject> lines = register.dvmObjects ?? [];
-for (var line in lines) {
-  print(line.toDBasicCode());
+Map<int, DvmObject> lines = register.lines ?? {};
+for (var line in lines.entries) {
+  print(
+    'Number: ${line.key} | Type: ${line.value.runtimeType} | Code: ${line.value.toDBasicCode()}');
 }
+// Console output:
+// Number: 10 | Type: _$_IfStatement | Code: IF EXISTS(name) THEN GOTO 50
+// Number: 20 | Type: _$_IfStatement | Code: IF STRLEN(name) >= 6 THEN GOTO 40
+// Number: 30 | Type: _$_IfStatement | Code: IF SIGNER() != address_raw("deto1qyvyeyzrcm2fzf6kyq7egkes2ufgny5xn77y6typhfx9s7w3mvyd5qqynr5hx") THEN GOTO 50
+// Number: 40 | Type: _$_FunctionInvocation | Code: STORE(name, SIGNER())
+// Number: 50 | Type: _$_ReturnStatement | Code: RETURN 0
 ```
 
 And much more (see example) ...
