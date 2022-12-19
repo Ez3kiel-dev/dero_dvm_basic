@@ -32,9 +32,9 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   @override
   Parser functionDeclarationParameterList() =>
       super.functionDeclarationParameterList().map((values) {
-        Map<Identifier, DvmType> params = {};
+        Map<Identifier, DBasicType> params = {};
         for (var value in values) {
-          if (value is Map<Identifier, DvmType>) params.addAll(value);
+          if (value is Map<Identifier, DBasicType>) params.addAll(value);
         }
         return params;
       });
@@ -42,16 +42,16 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   @override
   Parser functionDeclarationParameter() =>
       super.functionDeclarationParameter().map((values) {
-        Map<Identifier, DvmType> param = {values[0]: values[1]};
+        Map<Identifier, DBasicType> param = {values[0]: values[1]};
         return param;
       });
 
   @override
   Parser functionDeclarationParameterTail() =>
       super.functionDeclarationParameterTail().map((values) {
-        Map<Identifier, DvmType> params = {};
+        Map<Identifier, DBasicType> params = {};
         for (var value in values) {
-          if (value is Map<Identifier, DvmType>) {
+          if (value is Map<Identifier, DBasicType>) {
             params.addAll(value);
           }
         }
@@ -164,10 +164,10 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
       });
 
   @override
-  Parser uint64Type() => super.uint64Type().map((_) => DvmType.uint64);
+  Parser uint64Type() => super.uint64Type().map((_) => DBasicType.uint64);
 
   @override
-  Parser stringType() => super.stringType().map((_) => DvmType.string);
+  Parser stringType() => super.stringType().map((_) => DBasicType.string);
 
   @override
   Parser numberLexicalToken() =>

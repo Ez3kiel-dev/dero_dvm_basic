@@ -1,5 +1,4 @@
-import 'package:dero_dvm_basic/src/dvm_objects/dvm_object/dvm_object.dart';
-import 'package:dero_dvm_basic/src/dvm_objects/dvm_type.dart';
+import 'package:dero_dvm_basic/dero_dvm_basic.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dim_statement.freezed.dart';
@@ -11,7 +10,7 @@ class DimStatement extends DvmObject with _$DimStatement {
 
   factory DimStatement({
     required List<String> identifiers,
-    required DvmType declaredType,
+    required DBasicType declaredType,
   }) = _DimStatement;
 
   @override

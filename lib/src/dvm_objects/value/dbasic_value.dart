@@ -10,13 +10,13 @@ class DBasicValue extends DvmValue with _$DBasicValue {
 
   /// DVM-BASIC Uint64 value.
   factory DBasicValue.uint64({
-    @Default(DvmType.uint64) DvmType type,
+    @Default(DBasicType.uint64) DBasicType type,
     required int valueUint64,
   }) = DBasicUint64;
 
   /// DVM-BASIC String value.
   factory DBasicValue.string({
-    @Default(DvmType.string) DvmType type,
+    @Default(DBasicType.string) DBasicType type,
     required String valueString,
   }) = DBasicString;
 

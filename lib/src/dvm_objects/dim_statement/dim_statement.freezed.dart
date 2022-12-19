@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DimStatement {
   List<String> get identifiers => throw _privateConstructorUsedError;
-  DvmType get declaredType => throw _privateConstructorUsedError;
+  DBasicType get declaredType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DimStatementCopyWith<DimStatement> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $DimStatementCopyWith<$Res> {
           DimStatement value, $Res Function(DimStatement) then) =
       _$DimStatementCopyWithImpl<$Res, DimStatement>;
   @useResult
-  $Res call({List<String> identifiers, DvmType declaredType});
+  $Res call({List<String> identifiers, DBasicType declaredType});
 }
 
 /// @nodoc
@@ -57,7 +57,7 @@ class _$DimStatementCopyWithImpl<$Res, $Val extends DimStatement>
       declaredType: null == declaredType
           ? _value.declaredType
           : declaredType // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_DimStatementCopyWith<$Res>
       __$$_DimStatementCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> identifiers, DvmType declaredType});
+  $Res call({List<String> identifiers, DBasicType declaredType});
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class __$$_DimStatementCopyWithImpl<$Res>
       declaredType: null == declaredType
           ? _value.declaredType
           : declaredType // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
     ));
   }
 }
@@ -117,7 +117,7 @@ class _$_DimStatement extends _DimStatement {
   }
 
   @override
-  final DvmType declaredType;
+  final DBasicType declaredType;
 
   @override
   String toString() {
@@ -149,13 +149,13 @@ class _$_DimStatement extends _DimStatement {
 abstract class _DimStatement extends DimStatement {
   factory _DimStatement(
       {required final List<String> identifiers,
-      required final DvmType declaredType}) = _$_DimStatement;
+      required final DBasicType declaredType}) = _$_DimStatement;
   _DimStatement._() : super._();
 
   @override
   List<String> get identifiers;
   @override
-  DvmType get declaredType;
+  DBasicType get declaredType;
   @override
   @JsonKey(ignore: true)
   _$$_DimStatementCopyWith<_$_DimStatement> get copyWith =>

@@ -1,41 +1,41 @@
 /// Data types supported by DVM-BASIC.
-enum DvmType {
+enum DBasicType {
   string('String'),
   uint64('Uint64'),
   unknown('Unknown');
 
-  const DvmType(this.code);
+  const DBasicType(this.code);
 
   final String code;
 
   bool isTypeValid(dynamic value) {
     switch (this) {
-      case DvmType.string:
+      case DBasicType.string:
         if (value is String) {
           return true;
         } else {
           return false;
         }
-      case DvmType.uint64:
+      case DBasicType.uint64:
         if (value is int && value >= 0) {
           return true;
         } else {
           return false;
         }
-      case DvmType.unknown:
+      case DBasicType.unknown:
         return false;
     }
   }
 }
 
 /// @nodoc
-DvmType toDvmType(String type) {
+DBasicType toDBasicType(String type) {
   switch (type) {
     case 'String':
-      return DvmType.string;
+      return DBasicType.string;
     case 'Uint64':
-      return DvmType.uint64;
+      return DBasicType.uint64;
     default:
-      return DvmType.unknown;
+      return DBasicType.unknown;
   }
 }

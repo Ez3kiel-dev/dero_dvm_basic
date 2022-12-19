@@ -1,6 +1,4 @@
-import 'package:dero_dvm_basic/src/dvm_objects/dbasic_function/dbasic_function.dart';
-import 'package:dero_dvm_basic/src/dvm_objects/dbasic_function/dbasic_function_signature.dart';
-import 'package:dero_dvm_basic/src/dvm_objects/dvm_object/dvm_object.dart';
+import 'package:dero_dvm_basic/dero_dvm_basic.dart';
 import 'package:dero_dvm_basic/src/exceptions/dbasic_repository_exceptions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

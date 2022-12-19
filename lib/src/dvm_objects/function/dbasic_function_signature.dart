@@ -10,8 +10,8 @@ class DBasicFunctionSignature extends DvmObject with _$DBasicFunctionSignature {
 
   factory DBasicFunctionSignature({
     required Identifier id,
-    Map<Identifier, DvmType>? params,
-    required DvmType returnType,
+    Map<Identifier, DBasicType>? params,
+    required DBasicType returnType,
   }) = _DBasicFunctionSignature;
 
   @override

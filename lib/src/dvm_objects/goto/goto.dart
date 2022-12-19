@@ -1,4 +1,4 @@
-import 'package:dero_dvm_basic/src/dvm_objects/dvm_object/dvm_object.dart';
+import 'package:dero_dvm_basic/dero_dvm_basic.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'goto.freezed.dart';

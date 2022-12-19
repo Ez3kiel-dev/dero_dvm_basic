@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DBasicFunctionSignature {
   Identifier get id => throw _privateConstructorUsedError;
-  Map<Identifier, DvmType>? get params => throw _privateConstructorUsedError;
-  DvmType get returnType => throw _privateConstructorUsedError;
+  Map<Identifier, DBasicType>? get params => throw _privateConstructorUsedError;
+  DBasicType get returnType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DBasicFunctionSignatureCopyWith<DBasicFunctionSignature> get copyWith =>
@@ -32,7 +32,9 @@ abstract class $DBasicFunctionSignatureCopyWith<$Res> {
       _$DBasicFunctionSignatureCopyWithImpl<$Res, DBasicFunctionSignature>;
   @useResult
   $Res call(
-      {Identifier id, Map<Identifier, DvmType>? params, DvmType returnType});
+      {Identifier id,
+      Map<Identifier, DBasicType>? params,
+      DBasicType returnType});
 
   $IdentifierCopyWith<$Res> get id;
 }
@@ -63,11 +65,11 @@ class _$DBasicFunctionSignatureCopyWithImpl<$Res,
       params: freezed == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
-              as Map<Identifier, DvmType>?,
+              as Map<Identifier, DBasicType>?,
       returnType: null == returnType
           ? _value.returnType
           : returnType // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
     ) as $Val);
   }
 
@@ -89,7 +91,9 @@ abstract class _$$_DBasicFunctionSignatureCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Identifier id, Map<Identifier, DvmType>? params, DvmType returnType});
+      {Identifier id,
+      Map<Identifier, DBasicType>? params,
+      DBasicType returnType});
 
   @override
   $IdentifierCopyWith<$Res> get id;
@@ -119,11 +123,11 @@ class __$$_DBasicFunctionSignatureCopyWithImpl<$Res>
       params: freezed == params
           ? _value._params
           : params // ignore: cast_nullable_to_non_nullable
-              as Map<Identifier, DvmType>?,
+              as Map<Identifier, DBasicType>?,
       returnType: null == returnType
           ? _value.returnType
           : returnType // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
     ));
   }
 }
@@ -133,16 +137,16 @@ class __$$_DBasicFunctionSignatureCopyWithImpl<$Res>
 class _$_DBasicFunctionSignature extends _DBasicFunctionSignature {
   _$_DBasicFunctionSignature(
       {required this.id,
-      final Map<Identifier, DvmType>? params,
+      final Map<Identifier, DBasicType>? params,
       required this.returnType})
       : _params = params,
         super._();
 
   @override
   final Identifier id;
-  final Map<Identifier, DvmType>? _params;
+  final Map<Identifier, DBasicType>? _params;
   @override
-  Map<Identifier, DvmType>? get params {
+  Map<Identifier, DBasicType>? get params {
     final value = _params;
     if (value == null) return null;
     if (_params is EqualUnmodifiableMapView) return _params;
@@ -151,7 +155,7 @@ class _$_DBasicFunctionSignature extends _DBasicFunctionSignature {
   }
 
   @override
-  final DvmType returnType;
+  final DBasicType returnType;
 
   @override
   String toString() {
@@ -185,16 +189,16 @@ class _$_DBasicFunctionSignature extends _DBasicFunctionSignature {
 abstract class _DBasicFunctionSignature extends DBasicFunctionSignature {
   factory _DBasicFunctionSignature(
       {required final Identifier id,
-      final Map<Identifier, DvmType>? params,
-      required final DvmType returnType}) = _$_DBasicFunctionSignature;
+      final Map<Identifier, DBasicType>? params,
+      required final DBasicType returnType}) = _$_DBasicFunctionSignature;
   _DBasicFunctionSignature._() : super._();
 
   @override
   Identifier get id;
   @override
-  Map<Identifier, DvmType>? get params;
+  Map<Identifier, DBasicType>? get params;
   @override
-  DvmType get returnType;
+  DBasicType get returnType;
   @override
   @JsonKey(ignore: true)
   _$$_DBasicFunctionSignatureCopyWith<_$_DBasicFunctionSignature>

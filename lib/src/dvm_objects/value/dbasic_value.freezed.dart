@@ -16,23 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DBasicValue {
-  DvmType get type => throw _privateConstructorUsedError;
+  DBasicType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DvmType type, int valueUint64) uint64,
-    required TResult Function(DvmType type, String valueString) string,
+    required TResult Function(DBasicType type, int valueUint64) uint64,
+    required TResult Function(DBasicType type, String valueString) string,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DvmType type, int valueUint64)? uint64,
-    TResult? Function(DvmType type, String valueString)? string,
+    TResult? Function(DBasicType type, int valueUint64)? uint64,
+    TResult? Function(DBasicType type, String valueString)? string,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DvmType type, int valueUint64)? uint64,
-    TResult Function(DvmType type, String valueString)? string,
+    TResult Function(DBasicType type, int valueUint64)? uint64,
+    TResult Function(DBasicType type, String valueString)? string,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +67,7 @@ abstract class $DBasicValueCopyWith<$Res> {
           DBasicValue value, $Res Function(DBasicValue) then) =
       _$DBasicValueCopyWithImpl<$Res, DBasicValue>;
   @useResult
-  $Res call({DvmType type});
+  $Res call({DBasicType type});
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class _$DBasicValueCopyWithImpl<$Res, $Val extends DBasicValue>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$DBasicUint64CopyWith<$Res>
       __$$DBasicUint64CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DvmType type, int valueUint64});
+  $Res call({DBasicType type, int valueUint64});
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class __$$DBasicUint64CopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
       valueUint64: null == valueUint64
           ? _value.valueUint64
           : valueUint64 // ignore: cast_nullable_to_non_nullable
@@ -135,12 +135,12 @@ class __$$DBasicUint64CopyWithImpl<$Res>
 /// @nodoc
 
 class _$DBasicUint64 extends DBasicUint64 {
-  _$DBasicUint64({this.type = DvmType.uint64, required this.valueUint64})
+  _$DBasicUint64({this.type = DBasicType.uint64, required this.valueUint64})
       : super._();
 
   @override
   @JsonKey()
-  final DvmType type;
+  final DBasicType type;
   @override
   final int valueUint64;
 
@@ -171,8 +171,8 @@ class _$DBasicUint64 extends DBasicUint64 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DvmType type, int valueUint64) uint64,
-    required TResult Function(DvmType type, String valueString) string,
+    required TResult Function(DBasicType type, int valueUint64) uint64,
+    required TResult Function(DBasicType type, String valueString) string,
   }) {
     return uint64(type, valueUint64);
   }
@@ -180,8 +180,8 @@ class _$DBasicUint64 extends DBasicUint64 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DvmType type, int valueUint64)? uint64,
-    TResult? Function(DvmType type, String valueString)? string,
+    TResult? Function(DBasicType type, int valueUint64)? uint64,
+    TResult? Function(DBasicType type, String valueString)? string,
   }) {
     return uint64?.call(type, valueUint64);
   }
@@ -189,8 +189,8 @@ class _$DBasicUint64 extends DBasicUint64 {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DvmType type, int valueUint64)? uint64,
-    TResult Function(DvmType type, String valueString)? string,
+    TResult Function(DBasicType type, int valueUint64)? uint64,
+    TResult Function(DBasicType type, String valueString)? string,
     required TResult orElse(),
   }) {
     if (uint64 != null) {
@@ -232,12 +232,12 @@ class _$DBasicUint64 extends DBasicUint64 {
 }
 
 abstract class DBasicUint64 extends DBasicValue {
-  factory DBasicUint64({final DvmType type, required final int valueUint64}) =
-      _$DBasicUint64;
+  factory DBasicUint64(
+      {final DBasicType type, required final int valueUint64}) = _$DBasicUint64;
   DBasicUint64._() : super._();
 
   @override
-  DvmType get type;
+  DBasicType get type;
   int get valueUint64;
   @override
   @JsonKey(ignore: true)
@@ -253,7 +253,7 @@ abstract class _$$DBasicStringCopyWith<$Res>
       __$$DBasicStringCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DvmType type, String valueString});
+  $Res call({DBasicType type, String valueString});
 }
 
 /// @nodoc
@@ -274,7 +274,7 @@ class __$$DBasicStringCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DvmType,
+              as DBasicType,
       valueString: null == valueString
           ? _value.valueString
           : valueString // ignore: cast_nullable_to_non_nullable
@@ -286,12 +286,12 @@ class __$$DBasicStringCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DBasicString extends DBasicString {
-  _$DBasicString({this.type = DvmType.string, required this.valueString})
+  _$DBasicString({this.type = DBasicType.string, required this.valueString})
       : super._();
 
   @override
   @JsonKey()
-  final DvmType type;
+  final DBasicType type;
   @override
   final String valueString;
 
@@ -322,8 +322,8 @@ class _$DBasicString extends DBasicString {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DvmType type, int valueUint64) uint64,
-    required TResult Function(DvmType type, String valueString) string,
+    required TResult Function(DBasicType type, int valueUint64) uint64,
+    required TResult Function(DBasicType type, String valueString) string,
   }) {
     return string(type, valueString);
   }
@@ -331,8 +331,8 @@ class _$DBasicString extends DBasicString {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DvmType type, int valueUint64)? uint64,
-    TResult? Function(DvmType type, String valueString)? string,
+    TResult? Function(DBasicType type, int valueUint64)? uint64,
+    TResult? Function(DBasicType type, String valueString)? string,
   }) {
     return string?.call(type, valueString);
   }
@@ -340,8 +340,8 @@ class _$DBasicString extends DBasicString {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DvmType type, int valueUint64)? uint64,
-    TResult Function(DvmType type, String valueString)? string,
+    TResult Function(DBasicType type, int valueUint64)? uint64,
+    TResult Function(DBasicType type, String valueString)? string,
     required TResult orElse(),
   }) {
     if (string != null) {
@@ -384,11 +384,12 @@ class _$DBasicString extends DBasicString {
 
 abstract class DBasicString extends DBasicValue {
   factory DBasicString(
-      {final DvmType type, required final String valueString}) = _$DBasicString;
+      {final DBasicType type,
+      required final String valueString}) = _$DBasicString;
   DBasicString._() : super._();
 
   @override
-  DvmType get type;
+  DBasicType get type;
   String get valueString;
   @override
   @JsonKey(ignore: true)
