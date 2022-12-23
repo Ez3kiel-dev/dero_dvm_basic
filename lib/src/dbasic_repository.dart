@@ -45,8 +45,7 @@ class DBasicRepository {
       throw DBasicRepositoryException('No code has been loaded');
     }
     if (parsedResult.isFailure) {
-      print(parsedResult);
-      throw DBasicParsingException((parsedResult as Result<Failure>));
+      throw DBasicParsingException((parsedResult as Failure));
     }
     var functions = (parsedResult.value as List)
         .map((item) => item as DBasicFunction)

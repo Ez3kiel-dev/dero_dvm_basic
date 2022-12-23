@@ -2,7 +2,7 @@ import 'package:petitparser/context.dart';
 
 /// @nodoc
 class DBasicParsingException implements Exception {
-  final Result<Failure> result;
+  final Failure result;
 
   DBasicParsingException(this.result);
 

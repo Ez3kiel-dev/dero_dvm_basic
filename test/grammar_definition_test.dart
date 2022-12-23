@@ -280,8 +280,11 @@ void main() {
       expect('LOAD("lotterygiveback")*LOAD("deposit_total")/10000',
           accept(parser));
       expect('test() + 1', accept(parser));
+      expect('(1<<i)', accept(parser));
+      expect('tally & (1<<i)', accept(parser));
       expect('"depositor_address" + (deposit_count-1)', accept(parser));
       expect('3 - 3 2 4', isNot(accept(parser)));
+      expect('3 == 3', isNot(accept(parser)));
       expect('3 ++ 3', isNot(accept(parser)));
     });
     test('booleanExpression', () {
@@ -299,10 +302,10 @@ void main() {
       expect('test()>"string"', accept(parser));
       expect('3 < (3 + 2)', accept(parser));
       expect('3 < 3 + 2', accept(parser));
+      expect('(tally & (1<<i)) < 1', accept(parser));
       expect('var < (3 + 2)', accept(parser));
       expect('var < (3 + 2) && test()>"string"', accept(parser));
-      // expect('var < (3 + 2) && \n test()>"string"', isNot(accept(parser)));
-      // expect('3>\n2', isNot(accept(parser)));
+      // expect('tally & (1<<i)', isNot(accept(parser)));
     });
   });
 }

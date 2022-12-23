@@ -258,10 +258,10 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
   Parser shiftOperator() =>
       ref1(tokenSensitive, '<<') | ref1(tokenSensitive, '>>');
 
-  // Parser bitwiseOperator() =>
-  //     ref1(tokenSensitive, '&') |
-  //     ref1(tokenSensitive, '^') |
-  //     ref1(tokenSensitive, '|');
+  Parser bitwiseOperator() =>
+      ref1(tokenSensitive, '&') |
+      ref1(tokenSensitive, '^') |
+      ref1(tokenSensitive, '|');
 
   /// @nodoc
   Parser relationalOperator() =>
@@ -275,7 +275,7 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
 
   /// @nodoc
   Parser arithmeticExpression() =>
-      ref0(shiftExpression) | ref0(arithmeticExpressionInParentheses);
+      ref0(bitwiseExpression) | ref0(arithmeticExpressionInParentheses);
 
   /// @nodoc
   Parser arithmeticExpressionInParentheses() =>
@@ -302,23 +302,8 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
 
   /// @nodoc
   Parser logicalAndExpression() =>
-      ref0(bitwiseOrExpression) &
-      (ref1(tokenSensitive, '&&') & ref0(bitwiseOrExpression)).star();
-
-  /// @nodoc
-  Parser bitwiseOrExpression() =>
-      ref0(bitwiseXorExpression) &
-      (ref1(tokenSensitive, '|') & ref0(bitwiseXorExpression)).star();
-
-  /// @nodoc
-  Parser bitwiseXorExpression() =>
-      ref0(bitwiseAndExpression) &
-      (ref1(tokenSensitive, '^') & ref0(bitwiseAndExpression)).star();
-
-  /// @nodoc
-  Parser bitwiseAndExpression() =>
       ref0(equalityExpression) &
-      (ref1(tokenSensitive, '&') & ref0(equalityExpression)).star();
+      (ref1(tokenSensitive, '&&') & ref0(equalityExpression)).star();
 
   /// @nodoc
   Parser equalityExpression() =>
@@ -329,6 +314,11 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
   Parser relationalExpression() =>
       ref0(arithmeticExpression) &
       (ref0(relationalOperator) & ref0(arithmeticExpression)).optional();
+
+  /// @nodoc
+  Parser bitwiseExpression() =>
+      ref0(shiftExpression) &
+      (ref0(bitwiseOperator) & ref0(shiftExpression)).star();
 
   /// @nodoc
   Parser shiftExpression() =>
@@ -440,6 +430,7 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
       ref0(dimStatement) |
       ref0(letStatement) |
       ref0(ifStatement) |
+      ref0(gotoStatement) |
       ref0(functionInvocation);
 
   /// @nodoc

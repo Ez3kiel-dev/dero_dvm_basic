@@ -63,7 +63,9 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   // -----------------------------------------------------------------
   @override
   Parser functionInvocation() => super.functionInvocation().map((values) {
-        return FunctionInvocation(id: Identifier(values[0]), params: values[1]);
+        return FunctionInvocation(
+            id: values[0] is Identifier ? values[0] : Identifier(values[0]),
+            params: values[1]);
       });
 
   @override
@@ -84,7 +86,6 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   @override
   Parser functionInvocationParameterTail() =>
       super.functionInvocationParameterTail().map((values) {
-        // print(values);
         List<Expression> params = [];
 
         for (var value in values) {
@@ -128,12 +129,13 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
 
         return IfStatement(
             booleanExpression: exp,
-            thenGoto: Goto(values[2][1]),
-            elseGoto: (values[3] != null) ? Goto(values[3][1]) : null);
+            thenGoto: values[2][1],
+            elseGoto: (values[3] != null) ? values[3][1] : null);
       });
 
   @override
-  Parser gotoStatement() => super.gotoStatement().map((values) => values[1]);
+  Parser gotoStatement() =>
+      super.gotoStatement().map((values) => Goto(values[1]));
 
   @override
   Parser dimStatement() => super.dimStatement().map((values) {
@@ -208,16 +210,8 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
       super.equalityExpression().map((value) => _buildExpression(value));
 
   @override
-  Parser bitwiseAndExpression() =>
-      super.bitwiseAndExpression().map((value) => _buildExpression(value));
-
-  @override
-  Parser bitwiseXorExpression() =>
-      super.bitwiseXorExpression().map((value) => _buildExpression(value));
-
-  @override
-  Parser bitwiseOrExpression() =>
-      super.bitwiseOrExpression().map((value) => _buildExpression(value));
+  Parser bitwiseExpression() =>
+      super.bitwiseExpression().map((value) => _buildExpression(value));
 
   @override
   Parser logicalAndExpression() =>
