@@ -18,5 +18,5 @@ pubspec.lock
 # Misc
 coverage/html/
 doc/
-playground/
+playground/main.dart
 TODO.txt

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dero_dvm_basic/dero_dvm_basic.dart';
-import 'package:dero_dvm_basic/src/exceptions/dbasic_exceptions.dart';
+import 'package:dero_dvm_basic/src/exceptions/dbasic_parser_exception.dart';
 import 'package:path/path.dart' as p;
 
 const String nameServiceSC = '''
@@ -36,7 +36,7 @@ Future<void> main() async {
   DBasicRepository dBasicRepository;
   try {
     dBasicRepository = DBasicRepository.loadSmartContract(nameServiceSC);
-  } on DBasicParsingException catch (exception) {
+  } on DBasicParserException catch (exception) {
     // Print the position in the buffer where parsing failed
     print(exception.position);
     // Get the row and column where the parsing failed
@@ -88,6 +88,34 @@ Future<void> main() async {
     // 30 RETURN 0
     // End Function
     // -------------------------------------------------------------------------
+
+    // It is also possible to create directly an Expression data structure.
+    var expression = DBasicRepository.createArithmeticExpression(
+        '(p2 / base * base + p1 / base) - q1 * ch');
+
+    // And then print the AST of the Expression.
+    expression.prettyPrintTree();
+    // Console output:
+    // -------------------------------------------------------------------------
+    //          /----- ch
+    //  /----- *
+    //  |       \----- q1
+    // -
+    //  |               /----- base
+    //  |       /----- /
+    //  |       |       \----- p1
+    //  \----- +
+    //          |       /----- base
+    //          \----- *
+    //                  |       /----- base
+    //                  \----- /
+    //                          \----- p2
+
+    // Or transform the AST into code again.
+    print(expression.toDBasicCode());
+    // Console output:
+    // -------------------------------------------------------------------------
+    // (p2 / base * base + p1 / base) - q1 * ch
   } catch (e) {
     print(e);
   }

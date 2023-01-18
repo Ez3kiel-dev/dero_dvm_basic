@@ -17,10 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DBasicSmartContract {
   String? get name => throw _privateConstructorUsedError;
-  set name(String? value) => throw _privateConstructorUsedError;
   Map<String, DBasicFunction> get functions =>
-      throw _privateConstructorUsedError;
-  set functions(Map<String, DBasicFunction> value) =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -97,7 +94,7 @@ class __$$_DBasicSmartContractCopyWithImpl<$Res>
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
       functions: null == functions
-          ? _value.functions
+          ? _value._functions
           : functions // ignore: cast_nullable_to_non_nullable
               as Map<String, DBasicFunction>,
     ));
@@ -107,17 +104,39 @@ class __$$_DBasicSmartContractCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DBasicSmartContract extends _DBasicSmartContract {
-  _$_DBasicSmartContract({this.name, required this.functions}) : super._();
+  _$_DBasicSmartContract(
+      {this.name, required final Map<String, DBasicFunction> functions})
+      : _functions = functions,
+        super._();
 
   @override
-  String? name;
+  final String? name;
+  final Map<String, DBasicFunction> _functions;
   @override
-  Map<String, DBasicFunction> functions;
+  Map<String, DBasicFunction> get functions {
+    if (_functions is EqualUnmodifiableMapView) return _functions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_functions);
+  }
 
   @override
   String toString() {
     return 'DBasicSmartContract(name: $name, functions: $functions)';
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DBasicSmartContract &&
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality()
+                .equals(other._functions, _functions));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, name, const DeepCollectionEquality().hash(_functions));
 
   @JsonKey(ignore: true)
   @override
@@ -129,16 +148,15 @@ class _$_DBasicSmartContract extends _DBasicSmartContract {
 
 abstract class _DBasicSmartContract extends DBasicSmartContract {
   factory _DBasicSmartContract(
-      {String? name,
-      required Map<String, DBasicFunction> functions}) = _$_DBasicSmartContract;
+          {final String? name,
+          required final Map<String, DBasicFunction> functions}) =
+      _$_DBasicSmartContract;
   _DBasicSmartContract._() : super._();
 
   @override
   String? get name;
-  set name(String? value);
   @override
   Map<String, DBasicFunction> get functions;
-  set functions(Map<String, DBasicFunction> value);
   @override
   @JsonKey(ignore: true)
   _$$_DBasicSmartContractCopyWith<_$_DBasicSmartContract> get copyWith =>

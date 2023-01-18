@@ -5,6 +5,8 @@ export 'value/dbasic_value.dart';
 export 'dim_statement/dim_statement.dart';
 export 'object/dvm_object.dart';
 export 'expression/expression.dart';
+export 'expression/ast_node.dart';
+export 'expression/operator.dart';
 export 'function_invocation/function_invocation.dart';
 export 'goto/goto.dart';
 export 'identifier/identifier.dart';

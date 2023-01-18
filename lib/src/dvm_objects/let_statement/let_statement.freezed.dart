@@ -31,6 +31,8 @@ abstract class $LetStatementCopyWith<$Res> {
       _$LetStatementCopyWithImpl<$Res, LetStatement>;
   @useResult
   $Res call({String identifier, Expression expression});
+
+  $ExpressionCopyWith<$Res> get expression;
 }
 
 /// @nodoc
@@ -60,6 +62,14 @@ class _$LetStatementCopyWithImpl<$Res, $Val extends LetStatement>
               as Expression,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpressionCopyWith<$Res> get expression {
+    return $ExpressionCopyWith<$Res>(_value.expression, (value) {
+      return _then(_value.copyWith(expression: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -71,6 +81,9 @@ abstract class _$$_LetStatementCopyWith<$Res>
   @override
   @useResult
   $Res call({String identifier, Expression expression});
+
+  @override
+  $ExpressionCopyWith<$Res> get expression;
 }
 
 /// @nodoc

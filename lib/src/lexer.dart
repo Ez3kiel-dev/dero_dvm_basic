@@ -1,4 +1,5 @@
 import 'package:dero_dvm_basic/dero_dvm_basic.dart';
+import 'package:dero_dvm_basic/src/exceptions/dbasic_lexer_exception.dart';
 import 'package:petitparser/petitparser.dart';
 
 /// Transform the first analysis pass into a useful data structure.
@@ -76,8 +77,8 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
         for (var value in values) {
           if (value is List<Expression>) {
             params = params + value;
-          } else if (value is Expression) {
-            params.add((value));
+          } else if (value is ASTNode) {
+            params.add(Expression(value));
           }
         }
         return params;
@@ -91,8 +92,8 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
         for (var value in values) {
           if (value is List<Expression>) {
             params = params + value;
-          } else if (value is Expression) {
-            params.add((value));
+          } else if (value is ASTNode) {
+            params.add(Expression(value));
           }
         }
         return params;
@@ -104,31 +105,19 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   @override
   Parser returnStatement() => super
       .returnStatement()
-      .map((values) => ReturnStatement(expression: values[1]));
+      .map((values) => ReturnStatement(expression: Expression(values[1])));
 
   @override
   Parser letStatement() => super.letStatement().map((values) {
         return LetStatement(
-            identifier: (values[1] as Identifier).name, expression: values[3]);
+            identifier: (values[1] as Identifier).name,
+            expression: Expression(values[3]));
       });
 
   @override
   Parser ifStatement() => super.ifStatement().map((values) {
-        Expression exp;
-
-        if (values[1] is List) {
-          if (values[1][0] != null) {
-            exp = Expression(
-                values[1][1][1], getOperator((values[1][0] as Token).value));
-          } else {
-            exp = values[1][1][1];
-          }
-        } else {
-          exp = values[1];
-        }
-
         return IfStatement(
-            booleanExpression: exp,
+            booleanExpression: Expression(values[1]),
             thenGoto: values[2][1],
             elseGoto: (values[3] != null) ? values[3][1] : null);
       });
@@ -191,117 +180,137 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
 
   @override
   Parser multiplicativeExpression() =>
-      super.multiplicativeExpression().map((value) => _buildExpression(value));
+      super.multiplicativeExpression().map((value) => _buildAST(value));
 
   @override
   Parser additiveExpression() =>
-      super.additiveExpression().map((value) => _buildExpression(value));
+      super.additiveExpression().map((value) => _buildAST(value));
 
   @override
   Parser shiftExpression() =>
-      super.shiftExpression().map((value) => _buildExpression(value));
+      super.shiftExpression().map((value) => _buildAST(value));
 
   @override
   Parser relationalExpression() =>
-      super.relationalExpression().map((value) => _buildExpression(value));
+      super.relationalExpression().map((value) => _buildAST(value));
 
   @override
   Parser equalityExpression() =>
-      super.equalityExpression().map((value) => _buildExpression(value));
+      super.equalityExpression().map((value) => _buildAST(value));
 
   @override
   Parser bitwiseExpression() =>
-      super.bitwiseExpression().map((value) => _buildExpression(value));
+      super.bitwiseExpression().map((value) => _buildAST(value));
 
   @override
   Parser logicalAndExpression() =>
-      super.logicalAndExpression().map((value) => _buildExpression(value));
+      super.logicalAndExpression().map((value) => _buildAST(value));
 
   @override
   Parser logicalOrExpression() =>
-      super.logicalOrExpression().map((value) => _buildExpression(value));
+      super.logicalOrExpression().map((value) => _buildAST(value));
 
   // -----------------------------------------------------------------
   // Utility functions.
   // -----------------------------------------------------------------
 
-  /// Converts parsing expression result into [Expression].
-  dynamic _buildExpression(List rawExp) {
-    Expression finalExp;
-    Expression? tempExp;
+  dynamic _buildAST(List rawExpr) {
+    // print(rawExpr);
 
-    if (rawExp[0] is Expression) {
-      tempExp = rawExp[0];
-    } else if (rawExp[0] is Token && (rawExp[0] as Token).value is List) {
-      for (var elem in (rawExp[0] as Token).value) {
-        if (elem is Expression) {
-          tempExp = elem;
-        }
-      }
-    }
-    finalExp = tempExp ?? Expression((rawExp[0] as Token).value);
+    var node = ASTNode();
 
-    if (rawExp[1] != null && (rawExp[1] as List).isNotEmpty) {
-      var traverseExp = finalExp;
+    if (rawExpr[0] is ASTNode &&
+        rawExpr[1] is List &&
+        (rawExpr[1] as List).isEmpty) {
+      // print('AST NODE AND EMPTY LIST');
 
-      if ((rawExp[1] as List).length == 2 &&
-          rawExp[1][0] is! List &&
-          rawExp[1][1] is! List) {
-        traverseExp = traverseExp.traverse();
-        traverseExp.operator = getOperator((rawExp[1][0] as Token).value);
+      node = rawExpr[0];
+    } else if (rawExpr[0] is Token &&
+        rawExpr[1] is List &&
+        (rawExpr[1] as List).isEmpty) {
+      // print('TOKEN AND EMPTY LIST');
 
-        if (rawExp[1][1] is Expression) {
-          traverseExp.exp2 = rawExp[1][1];
-        } else {
-          traverseExp.exp2 = Expression((rawExp[1][1] as Token).value);
-        }
+      if (rawExpr[0].value is List) {
+        node = (rawExpr[0].value[1] as ASTNode).copyWith(parentheses: true);
       } else {
-        for (var elem in rawExp[1]) {
-          traverseExp = traverseExp.traverse();
-          traverseExp.operator = getOperator((elem[0] as Token).value);
-
-          if (elem[1] is Expression) {
-            traverseExp.exp2 = elem[1];
-          } else {
-            traverseExp.exp2 = Expression((elem[1] as Token).value);
-          }
-        }
+        node = node.copyWith(value: rawExpr[0].value);
       }
+    } else if (rawExpr[0] is List &&
+        rawExpr[1] is List &&
+        (rawExpr[1] as List).isEmpty) {
+      // print('LIST AND EMPTY LIST');
 
-      var currentOp = finalExp.operator?.code;
-      if (currentOp == '*' || currentOp == '/' || currentOp == '%') {
-        finalExp = Expression(finalExp);
+      node = (rawExpr[0][1] as ASTNode).copyWith(parentheses: true);
+    } else if (rawExpr[0] is ASTNode &&
+        rawExpr[1] is List &&
+        (rawExpr[1] as List).isNotEmpty) {
+      // print('AST NODE AND LIST');
+
+      node = _buildSubTree(rawExpr[0], rawExpr[1]);
+    } else if (rawExpr[0] is Token &&
+        rawExpr[1] is List &&
+        (rawExpr[1] as List).isNotEmpty) {
+      // print('TOKEN AND LIST');
+
+      if (rawExpr[0].value is List) {
+        node = _buildSubTree(
+            (rawExpr[0].value[1] as ASTNode).copyWith(parentheses: true),
+            rawExpr[1]);
+      } else {
+        node = _buildSubTree(
+            ASTNode(value: rawExpr[0].value as DvmValue), rawExpr[1]);
       }
+    } else {
+      DBasicLexerException('Unable to build ASTNode with this data: $rawExpr');
     }
 
-    return finalExp;
+    return node;
   }
 
-/*dynamic _cleanUpExpression(dynamic value) {
-    // print('values : $value');
-    if (value != null) {
-      if (value[0] is Token) {
-        if (value[1] == null || (value[1] as List).isEmpty) {
-          // print('TOKEN1');
-          // print(value[0]);
-          return value[0];
-        } else {
-          // print('TOKEN2');
-          // print(value);
-          return value;
-        }
-      } else if (value[0] is List) {
-        if ((value[0] as List).isNotEmpty) {
-          // print('LIST');
-          if (value[1] == null || (value[1] as List).isEmpty) {
-            // print(value[0]);
-            return value[0];
-          } else {
-            // print(value);
-            return value;
-          }
-        }
+  dynamic _buildSubTree(ASTNode node, List list) {
+    var rightNode = ASTNode();
+
+    if (list[0][1] is Token) {
+      if (list[0][1].value is List) {
+        rightNode =
+            (list[0][1].value[1] as ASTNode).copyWith(parentheses: true);
+      } else {
+        rightNode = rightNode.copyWith(value: list[0][1].value);
       }
+    } else if (list[0][1] is List) {
+      rightNode = (list[0][1][1] as ASTNode).copyWith(parentheses: true);
+    } else {
+      rightNode = list[0][1];
     }
-  }*/
+
+    ASTNode tree = ASTNode(
+        operator: getOperator((list[0][0] as Token).value),
+        left: node,
+        right: rightNode);
+
+    list.removeAt(0);
+
+    for (var elem in list) {
+      rightNode = ASTNode();
+
+      if (elem[1] is Token) {
+        if (elem[1].value is List) {
+          rightNode = (elem[1].value[1] as ASTNode).copyWith(parentheses: true);
+        } else {
+          rightNode = rightNode.copyWith(value: elem[1].value);
+        }
+      } else if (elem[1] is List) {
+        rightNode = (elem[1][1] as ASTNode).copyWith(parentheses: true);
+      } else {
+        rightNode = elem[1];
+      }
+
+      var currentTree = ASTNode(
+          operator: getOperator((elem[0] as Token).value),
+          left: tree,
+          right: rightNode);
+      tree = currentTree;
+    }
+    return tree;
+  }
 }

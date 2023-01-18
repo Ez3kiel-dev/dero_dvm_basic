@@ -68,11 +68,11 @@ And much more (see example) ...
 
 ## Donations
 
-If this package was useful to you, and you want to support me :
+If you found this package useful :)
 
 Send any amount to `dero1qy5a6wk2r9mq3e5kagku4kdrhq407qhvht8qke5sxpm9u8lqmph3vqgl3nz8t` or use my
 named address `Ez3kiel`.
 
-Thx!
+Thanks!
 
 [Dero]: https://dero.io/

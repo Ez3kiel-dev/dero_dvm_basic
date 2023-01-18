@@ -1,14 +1,14 @@
 import 'package:petitparser/context.dart';
 
 /// @nodoc
-class DBasicParsingException implements Exception {
+class DBasicParserException implements Exception {
   final Failure result;
 
-  DBasicParsingException(this.result);
+  DBasicParserException(this.result);
 
   @override
   String toString() {
-    return 'DBasicParsingException - The parsing process has failed';
+    return 'DBasicParserException - The parsing process has failed';
   }
 
   Failure get value => result.value;

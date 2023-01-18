@@ -297,23 +297,28 @@ class DeroBasicGrammarDefinition extends GrammarDefinition {
 
   /// @nodoc
   Parser logicalOrExpression() =>
-      ref0(logicalAndExpression) &
-      (ref1(tokenSensitive, '||') & ref0(logicalAndExpression)).star();
+      (ref0(logicalAndExpression) | ref0(booleanExpressionInParentheses)) &
+      (ref1(tokenSensitive, '||') &
+              (ref0(logicalAndExpression) |
+                  ref0(booleanExpressionInParentheses)))
+          .star();
 
   /// @nodoc
   Parser logicalAndExpression() =>
-      ref0(equalityExpression) &
-      (ref1(tokenSensitive, '&&') & ref0(equalityExpression)).star();
+      (ref0(equalityExpression) | ref0(booleanExpressionInParentheses)) &
+      (ref1(tokenSensitive, '&&') &
+              (ref0(equalityExpression) | ref0(booleanExpressionInParentheses)))
+          .star();
 
   /// @nodoc
   Parser equalityExpression() =>
       ref0(relationalExpression) &
-      (ref0(equalityOperator) & ref0(relationalExpression)).optional();
+      (ref0(equalityOperator) & ref0(relationalExpression)).star();
 
   /// @nodoc
   Parser relationalExpression() =>
       ref0(arithmeticExpression) &
-      (ref0(relationalOperator) & ref0(arithmeticExpression)).optional();
+      (ref0(relationalOperator) & ref0(arithmeticExpression)).star();
 
   /// @nodoc
   Parser bitwiseExpression() =>

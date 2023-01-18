@@ -33,6 +33,7 @@ abstract class $IfStatementCopyWith<$Res> {
   @useResult
   $Res call({Expression booleanExpression, Goto thenGoto, Goto? elseGoto});
 
+  $ExpressionCopyWith<$Res> get booleanExpression;
   $GotoCopyWith<$Res> get thenGoto;
   $GotoCopyWith<$Res>? get elseGoto;
 }
@@ -72,6 +73,14 @@ class _$IfStatementCopyWithImpl<$Res, $Val extends IfStatement>
 
   @override
   @pragma('vm:prefer-inline')
+  $ExpressionCopyWith<$Res> get booleanExpression {
+    return $ExpressionCopyWith<$Res>(_value.booleanExpression, (value) {
+      return _then(_value.copyWith(booleanExpression: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $GotoCopyWith<$Res> get thenGoto {
     return $GotoCopyWith<$Res>(_value.thenGoto, (value) {
       return _then(_value.copyWith(thenGoto: value) as $Val);
@@ -101,6 +110,8 @@ abstract class _$$_IfStatementCopyWith<$Res>
   @useResult
   $Res call({Expression booleanExpression, Goto thenGoto, Goto? elseGoto});
 
+  @override
+  $ExpressionCopyWith<$Res> get booleanExpression;
   @override
   $GotoCopyWith<$Res> get thenGoto;
   @override

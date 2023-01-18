@@ -30,6 +30,8 @@ abstract class $ReturnStatementCopyWith<$Res> {
       _$ReturnStatementCopyWithImpl<$Res, ReturnStatement>;
   @useResult
   $Res call({Expression expression});
+
+  $ExpressionCopyWith<$Res> get expression;
 }
 
 /// @nodoc
@@ -54,6 +56,14 @@ class _$ReturnStatementCopyWithImpl<$Res, $Val extends ReturnStatement>
               as Expression,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpressionCopyWith<$Res> get expression {
+    return $ExpressionCopyWith<$Res>(_value.expression, (value) {
+      return _then(_value.copyWith(expression: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -65,6 +75,9 @@ abstract class _$$_ReturnStatementCopyWith<$Res>
   @override
   @useResult
   $Res call({Expression expression});
+
+  @override
+  $ExpressionCopyWith<$Res> get expression;
 }
 
 /// @nodoc

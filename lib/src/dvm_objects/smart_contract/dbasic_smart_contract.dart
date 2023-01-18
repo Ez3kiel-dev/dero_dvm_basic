@@ -1,11 +1,11 @@
 import 'package:dero_dvm_basic/dero_dvm_basic.dart';
-import 'package:dero_dvm_basic/src/exceptions/dbasic_repository_exceptions.dart';
+import 'package:dero_dvm_basic/src/exceptions/dbasic_repository_exception.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dbasic_smart_contract.freezed.dart';
 
 /// The representation of a DVM-BASIC smart contract.
-@unfreezed
+@freezed
 class DBasicSmartContract extends DvmObject with _$DBasicSmartContract {
   DBasicSmartContract._();
 

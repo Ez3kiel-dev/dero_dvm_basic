@@ -305,6 +305,12 @@ void main() {
       expect('(tally & (1<<i)) < 1', accept(parser));
       expect('var < (3 + 2)', accept(parser));
       expect('var < (3 + 2) && test()>"string"', accept(parser));
+      expect('(t > 4) || (x > 1)', accept(parser));
+      expect('((rhat >= base) || q1*cl <= rhat*base+p1)', accept(parser));
+      expect(
+          '(test>1 && rhat >= base || q1*cl <= rhat*base+p1)', accept(parser));
+      expect('(q1 < base && (rhat >= base || q1*cl <= rhat*base+p1))',
+          accept(parser));
       // expect('tally & (1<<i)', isNot(accept(parser)));
     });
   });

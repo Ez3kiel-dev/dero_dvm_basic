@@ -1,3 +1,7 @@
+## 0.1.3
+
+- refactor: redesign of the Expressions representation.
+
 ## 0.0.3
 
 - fix: Grammar definition and lexer.
