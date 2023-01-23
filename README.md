@@ -19,27 +19,25 @@ import 'package:path/path.dart' as p;
 
 Future<void> main() async {
   var filePath =
-  p.join(Directory.current.path, 'smart_contracts', 'token.bas');
+  p.join(Directory.current.path, 'smart_contracts', 'lottery.bas');
 
   try {
-    File file = File(filePath);
-    String data = await file.readAsString();
-    
+    var file = File(filePath);
+    var data = await file.readAsString();
     var dBasicRepository = DBasicRepository.loadSmartContract(data);
-
-    dBasicRepository.sc.prettyPrintFunctionSignatures();
-    // Console output:
-    // Function: Lottery - params : {} - returnType : DvmType.uint64
-    // Function: Initialize - params : {} - returnType : DvmType.uint64
-    // Function: TuneLotteryParameters - params : {input : DvmType.uint64, lotteryeveryXdeposit : DvmType.uint64, lotterygiveback : DvmType.uint64} - returnType : DvmType.uint64
-    // Function: TransferOwnership - params : {newowner : DvmType.string} - returnType : DvmType.uint64
-    // Function: ClaimOwnership - params : {} - returnType : DvmType.uint64
-    // Function: Withdraw - params : {amount : DvmType.uint64} - returnType : DvmType.uint64
-    // Function: UpdateCode - params : {code : DvmType.string} - returnType : DvmType.uint64
-
   } catch (e) {
     print(e);
   }
+
+  dBasicRepository.sc.prettyPrintFunctionSignatures();
+  // Console output:
+  // Function: Lottery - params : {} - returnType : DvmType.uint64
+  // Function: Initialize - params : {} - returnType : DvmType.uint64
+  // Function: TuneLotteryParameters - params : {input : DvmType.uint64, lotteryeveryXdeposit : DvmType.uint64, lotterygiveback : DvmType.uint64} - returnType : DvmType.uint64
+  // Function: TransferOwnership - params : {newowner : DvmType.string} - returnType : DvmType.uint64
+  // Function: ClaimOwnership - params : {} - returnType : DvmType.uint64
+  // Function: Withdraw - params : {amount : DvmType.uint64} - returnType : DvmType.uint64
+  // Function: UpdateCode - params : {code : DvmType.string} - returnType : DvmType.uint64
 }
 ```
 
@@ -47,24 +45,30 @@ Once the parsing is successful, we can retrieve each function of the SC and brow
 numbered execution lines.
 
 ```dart
-var dbasicRepository = DbasicRepository.loadSmartContract(filePath);
+var lotteryFunc = dbasicRepository.sc.getFunction('Lottery');
 
-DBasicFunction register = dbasicRepository.sc.getFunction('Register');
+Map<int, DvmObject> lines = lotteryFunc.lines ?? {};
 
-Map<int, DvmObject> lines = register.lines ?? {};
 for (var line in lines.entries) {
-  print(
+    print(
     'Number: ${line.key} | Type: ${line.value.runtimeType} | Code: ${line.value.toDBasicCode()}');
 }
 // Console output:
-// Number: 10 | Type: _$_IfStatement | Code: IF EXISTS(name) THEN GOTO 50
-// Number: 20 | Type: _$_IfStatement | Code: IF STRLEN(name) >= 6 THEN GOTO 40
-// Number: 30 | Type: _$_IfStatement | Code: IF SIGNER() != address_raw("deto1qyvyeyzrcm2fzf6kyq7egkes2ufgny5xn77y6typhfx9s7w3mvyd5qqynr5hx") THEN GOTO 50
-// Number: 40 | Type: _$_FunctionInvocation | Code: STORE(name, SIGNER())
-// Number: 50 | Type: _$_ReturnStatement | Code: RETURN 0
+// Number: 10 | Type: _$_DimStatement | Code: DIM deposit_count, winner as Uint64
+// Number: 20 | Type: _$_LetStatement | Code: LET deposit_count = LOAD("deposit_count") + 1
+// Number: 25 | Type: _$_IfStatement | Code: IF DEROVALUE() == 0 THEN GOTO 110
+// Number: 30 | Type: _$_FunctionInvocation | Code: STORE("depositor_address" + (deposit_count - 1), SIGNER())
+// Number: 40 | Type: _$_FunctionInvocation | Code: STORE("deposit_total", LOAD("deposit_total") + DEROVALUE())
+// Number: 50 | Type: _$_FunctionInvocation | Code: STORE("deposit_count", deposit_count)
+// Number: 60 | Type: _$_IfStatement | Code: IF LOAD("lotteryeveryXdeposit") > deposit_count THEN GOTO 110
+// Number: 70 | Type: _$_LetStatement | Code: LET winner = RANDOM() % deposit_count
+// Number: 80 | Type: _$_FunctionInvocation | Code: SEND_DERO_TO_ADDRESS(LOAD("depositor_address" + winner), LOAD("lotterygiveback") * LOAD("deposit_total") / 10000)
+// Number: 90 | Type: _$_FunctionInvocation | Code: STORE("deposit_count", 0)
+// Number: 100 | Type: _$_FunctionInvocation | Code: STORE("deposit_total", 0)
+// Number: 110 | Type: _$_ReturnStatement | Code: RETURN 0
 ```
 
-And much more (see example) ...
+And much more (see `Example` folder) ...
 
 ## Donations
 

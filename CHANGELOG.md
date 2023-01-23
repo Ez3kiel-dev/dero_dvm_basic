@@ -1,3 +1,7 @@
+## 0.1.4
+
+- docs: fix code in README.
+
 ## 0.1.3
 
 - refactor: redesign of the Expressions representation.
