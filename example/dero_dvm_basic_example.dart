@@ -34,14 +34,15 @@ End Function
 
 Future<void> main() async {
   DBasicRepository dBasicRepository;
+
   try {
     dBasicRepository = DBasicRepository.loadSmartContract(nameServiceSC);
   } on DBasicParserException catch (exception) {
     // Print the position in the buffer where parsing failed
     print(exception.position);
     // Get the row and column where the parsing failed
-    int line = exception.lineAndColumn[0];
-    int column = exception.lineAndColumn[1];
+    var line = exception.lineAndColumn[0];
+    var column = exception.lineAndColumn[1];
   } catch (e) {
     print(e);
   }
@@ -51,22 +52,24 @@ Future<void> main() async {
       Directory.current.path, 'playground/smart_contracts', 'lottery.bas');
 
   try {
-    File file = File(filePath);
-    String data = await file.readAsString();
+    var file = File(filePath);
+    var data = await file.readAsString();
     dBasicRepository = DBasicRepository.loadSmartContract(data);
 
+    // Get smart contract
+    var sc = dBasicRepository.smartContract;
+
     // Get all functions defined in the SC
-    List<DBasicFunction> functions = dBasicRepository.functions;
+    var functions = sc.functions;
 
     // Get all function signatures ...
-    List<DBasicFunctionSignature> functionSignatures =
-        dBasicRepository.sc.getAllFunctionSignatures();
+    var functionSignatures = sc.getAllFunctionSignatures();
 
-    // ... or "pretty" print it
-    dBasicRepository.sc.prettyPrintFunctionSignatures();
+    // ... or "pretty" print it.
+    sc.prettyPrintFunctionSignatures();
 
     // Convert SC data structure back into code unit
-    String code = dBasicRepository.sc.toDBasicCode();
+    var code = sc.toDBasicCode();
     print(code);
     // Console output:
     // -------------------------------------------------------------------------
@@ -89,7 +92,7 @@ Future<void> main() async {
     // End Function
     // -------------------------------------------------------------------------
 
-    // It is also possible to create directly an Expression data structure.
+    // It is also possible to create directly an [Expression] data structure.
     var expression = DBasicRepository.createArithmeticExpression(
         '(p2 / base * base + p1 / base) - q1 * ch');
 

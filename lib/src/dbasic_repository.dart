@@ -5,11 +5,12 @@ import 'package:petitparser/petitparser.dart';
 import 'exceptions/dbasic_parser_exception.dart';
 
 /// Repository that helps to load a smart contract and to parse it.
+///
 /// (WIP ...)
 class DBasicRepository {
   String? codeUnit;
   final DeroBasicLexer _lexer = DeroBasicLexer();
-  DBasicSmartContract? _sc;
+  DBasicSmartContract? _smartContract;
 
   // Map<String, DBasicValue> storage = {};
 
@@ -42,18 +43,11 @@ class DBasicRepository {
   }
 
   /// Returns the smart contract.
-  DBasicSmartContract get sc {
-    var sc = _sc;
-    if (sc == null) {
+  DBasicSmartContract get smartContract {
+    if (_smartContract == null) {
       throw DBasicRepositoryException('No smart contract created');
     }
-    return sc;
-  }
-
-  /// Returns all functions defined in the SC.
-  List<DBasicFunction> get functions {
-    List<DBasicFunction> functions = _sc?.functions.values.toList() ?? [];
-    return functions;
+    return _smartContract!;
   }
 
   // -----------------------------------------------------------------
@@ -75,7 +69,7 @@ class DBasicRepository {
         .map((item) => item as DBasicFunction)
         .toList();
 
-    _sc = DBasicSmartContract(name: smartContractName, functions: {
+    _smartContract = DBasicSmartContract(name: smartContractName, functions: {
       for (var function in functions)
         function.functionSignature.id.name: function
     });

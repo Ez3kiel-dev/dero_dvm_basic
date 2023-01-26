@@ -32,11 +32,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('asset exchange contract', () async {
@@ -46,11 +47,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('hold Dero poker contract', () async {
@@ -60,11 +62,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('lottery contract', () async {
@@ -74,12 +77,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(dBasicRepository1.sc.toDBasicCode(),
-          dBasicRepository2.sc.toDBasicCode());
+      expect(dBasicRepository1.smartContract.toDBasicCode(),
+          dBasicRepository2.smartContract.toDBasicCode());
     });
 
     test('name service contract', () async {
@@ -89,11 +92,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('registry contract', () async {
@@ -103,11 +107,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('swap contract', () async {
@@ -117,11 +122,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('token contract', () async {
@@ -131,11 +137,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('token pieswap contract', () async {
@@ -145,11 +152,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('gnomon contract', () async {
@@ -159,11 +167,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     test('keystore contract', () async {
@@ -173,11 +182,12 @@ void main() {
       String data = await file.readAsString();
       var dBasicRepository1 = DBasicRepository.loadSmartContract(data);
 
-      var code = dBasicRepository1.sc.toDBasicCode();
+      var code = dBasicRepository1.smartContract.toDBasicCode();
 
       var dBasicRepository2 = DBasicRepository.loadSmartContract(code);
 
-      expect(true, dBasicRepository1.sc == dBasicRepository2.sc);
+      expect(true,
+          dBasicRepository1.smartContract == dBasicRepository2.smartContract);
     });
 
     /*test('private island contract', () async {

@@ -29,7 +29,9 @@ Future<void> main() async {
     print(e);
   }
 
-  dBasicRepository.sc.prettyPrintFunctionSignatures();
+  var sc = dBasicRepository.smartContract;
+
+  sc.prettyPrintFunctionSignatures();
   // Console output:
   // Function: Lottery - params : {} - returnType : DvmType.uint64
   // Function: Initialize - params : {} - returnType : DvmType.uint64
@@ -45,7 +47,7 @@ Once the parsing is successful, we can retrieve each function of the SC and brow
 numbered execution lines.
 
 ```dart
-var lotteryFunc = dbasicRepository.sc.getFunction('Lottery');
+var lotteryFunc = sc.getFunction('Lottery');
 
 Map<int, DvmObject> lines = lotteryFunc.lines ?? {};
 
@@ -68,7 +70,7 @@ for (var line in lines.entries) {
 // Number: 110 | Type: _$_ReturnStatement | Code: RETURN 0
 ```
 
-And much more (see `Example` folder) ...
+And much more (see `example` folder) ...
 
 ## Donations
 

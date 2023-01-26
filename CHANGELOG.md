@@ -1,3 +1,7 @@
+## 0.2.4
+
+- refactor: DBasicRepository.
+
 ## 0.1.4
 
 - docs: fix code in README.
