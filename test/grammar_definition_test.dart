@@ -15,7 +15,7 @@ void main() {
   group('Lexical tokens', () {
     test('stringLexicalToken', () {
       var stringParser = grammarDefinition
-          .build(start: grammarDefinition.stringLexicalToken)
+          .buildFrom(grammarDefinition.stringLexicalToken())
           .end();
       expect('"string"', accept(stringParser));
       expect('"String"', accept(stringParser));
@@ -30,7 +30,7 @@ void main() {
     });
     test('numberLexicalToken', () {
       var numberParser = grammarDefinition
-          .build(start: grammarDefinition.numberLexicalToken)
+          .buildFrom(grammarDefinition.numberLexicalToken())
           .end();
       expect('0', accept(numberParser));
       expect('5', accept(numberParser));
@@ -43,7 +43,7 @@ void main() {
     });
     test('identifierLexicalToken', () {
       var identifierParser = grammarDefinition
-          .build(start: grammarDefinition.identifierLexicalToken)
+          .buildFrom(grammarDefinition.identifierLexicalToken())
           .end();
       expect('test', accept(identifierParser));
       expect('Test', accept(identifierParser));
@@ -55,16 +55,15 @@ void main() {
     });
     test('newlineLexicalToken', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.newlineLexicalToken)
+          .buildFrom(grammarDefinition.newlineLexicalToken())
           .end();
       expect('\n', accept(parser));
       expect('\r', accept(parser));
     });
   });
   group('Whitespace and comments', () {
-    var whitespaces = grammarDefinition
-        .build(start: grammarDefinition.hiddenWhitespace)
-        .end();
+    var whitespaces =
+        grammarDefinition.buildFrom(grammarDefinition.hiddenWhitespace()).end();
     test('whitespace', () {
       expect(' ', accept(whitespaces));
       expect('\t', accept(whitespaces));
@@ -103,7 +102,7 @@ void main() {
   group('Grammar productions', () {
     test('identifier', () {
       var parser =
-          grammarDefinition.build(start: grammarDefinition.identifier).end();
+          grammarDefinition.buildFrom(grammarDefinition.identifier()).end();
       expect('test', accept(parser));
       expect('Test', accept(parser));
       expect('test_', accept(parser));
@@ -119,13 +118,13 @@ void main() {
     });
     test('dvmType', () {
       var dvmTypeParser =
-          grammarDefinition.build(start: grammarDefinition.dvmType).end();
+          grammarDefinition.buildFrom(grammarDefinition.dvmType()).end();
       expect('Uint64', accept(dvmTypeParser));
       expect('String', accept(dvmTypeParser));
     });
     test('builtInFunctions', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.builtInFunctions)
+          .buildFrom(grammarDefinition.builtInFunctions())
           .end();
       expect('STORE', accept(parser));
       expect('SIGNER', accept(parser));
@@ -144,7 +143,7 @@ void main() {
     });
     test('functionCall', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.functionInvocation)
+          .buildFrom(grammarDefinition.functionInvocation())
           .end();
       expect('STORE( "owner", SIGNER())', accept(parser));
       expect('STORE(SIGNER(), SIGNER())', accept(parser));
@@ -161,7 +160,7 @@ void main() {
       expect('STORE( 123', isNot(accept(parser)));
     });
     test('line', () {
-      var parser = grammarDefinition.build(start: grammarDefinition.line).end();
+      var parser = grammarDefinition.buildFrom(grammarDefinition.line()).end();
       expect('10 STORE( "owner", SIGNER())', accept(parser));
       expect(
           '10  IF DEROVALUE() == 0 THEN GOTO 110 // if deposit amount is 0, simply return',
@@ -174,7 +173,7 @@ void main() {
     });
     test('functionDeclaration', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.functionDeclaration)
+          .buildFrom(grammarDefinition.functionDeclaration())
           .end();
       expect('Function Initialize() Uint64', accept(parser));
       expect('Function Initialize() String', accept(parser));
@@ -186,21 +185,21 @@ void main() {
     });
     test('functionClosure', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.functionClosure)
+          .buildFrom(grammarDefinition.functionClosure())
           .end();
       expect('End Function', accept(parser));
       expect('END FuncTion', accept(parser));
     });
     test('functionBody', () {
       var parser =
-          grammarDefinition.build(start: grammarDefinition.functionBody).end();
+          grammarDefinition.buildFrom(grammarDefinition.functionBody()).end();
       expect('10 STORE("owner", SIGNER())\n40 RETURN 0', accept(parser));
       expect('10 STORE("owner", SIGNER()) // blabla comment\n40 RETURN 0',
           accept(parser));
     });
     test('functionExpression', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.functionExpression)
+          .buildFrom(grammarDefinition.functionExpression())
           .end();
       expect(
           'Function Initialize() Uint64\n10 STORE("owner", SIGNER())\n40  RETURN 0\nEnd Function',
@@ -220,7 +219,7 @@ void main() {
     });
     test('dimStatement', () {
       var parser =
-          grammarDefinition.build(start: grammarDefinition.dimStatement).end();
+          grammarDefinition.buildFrom(grammarDefinition.dimStatement()).end();
       expect('DIM count as Uint64', accept(parser));
       expect('DIM key,owner as String', accept(parser));
       expect('DIM key,owner, client as String', accept(parser));
@@ -228,7 +227,7 @@ void main() {
     });
     test('letStatement', () {
       var parser =
-          grammarDefinition.build(start: grammarDefinition.letStatement).end();
+          grammarDefinition.buildFrom(grammarDefinition.letStatement()).end();
       expect('LET test = 6', accept(parser));
       expect('LET test = "foo"', accept(parser));
       expect('LET test = test()', accept(parser));
@@ -239,7 +238,7 @@ void main() {
     });
     test('ifStatement', () {
       var parser =
-          grammarDefinition.build(start: grammarDefinition.ifStatement).end();
+          grammarDefinition.buildFrom(grammarDefinition.ifStatement()).end();
       expect('IF test > 1 THEN GOTO 10', accept(parser));
       expect('IF 1 == 1 THEN GOTO 10', accept(parser));
       expect('IF !("string" == "string") THEN GOTO 10', accept(parser));
@@ -253,7 +252,7 @@ void main() {
     });
     test('returnStatement', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.returnStatement)
+          .buildFrom(grammarDefinition.returnStatement())
           .end();
       expect('RETURN 1', accept(parser));
       expect('return 0', accept(parser));
@@ -266,7 +265,7 @@ void main() {
   group('Expressions', () {
     test('arithmeticExpression', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.arithmeticExpression)
+          .buildFrom(grammarDefinition.arithmeticExpression())
           .end();
       expect('3*3', accept(parser));
       expect('3 * 3', accept(parser));
@@ -289,7 +288,7 @@ void main() {
     });
     test('booleanExpression', () {
       var parser = grammarDefinition
-          .build(start: grammarDefinition.booleanExpression)
+          .buildFrom(grammarDefinition.booleanExpression())
           .end();
       expect('3>2', accept(parser));
       expect('2 < 3', accept(parser));

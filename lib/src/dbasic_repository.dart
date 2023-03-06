@@ -21,8 +21,7 @@ class DBasicRepository {
 
   static Expression createArithmeticExpression(String rawExp) {
     var lexer = DeroBasicLexer();
-    var res =
-        lexer.build(start: lexer.arithmeticExpression).end().parse(rawExp);
+    var res = lexer.buildFrom(lexer.arithmeticExpression()).end().parse(rawExp);
     if (res.isSuccess) {
       return Expression(res.value);
     } else {
@@ -33,7 +32,7 @@ class DBasicRepository {
 
   static Expression createBooleanExpression(String rawExp) {
     var lexer = DeroBasicLexer();
-    var res = lexer.build(start: lexer.booleanExpression).end().parse(rawExp);
+    var res = lexer.buildFrom(lexer.booleanExpression()).end().parse(rawExp);
     if (res.isSuccess) {
       return Expression(res.value);
     } else {

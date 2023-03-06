@@ -1,3 +1,7 @@
+## 0.2.5
+
+- chore: fix deprecated codes.
+
 ## 0.2.4
 
 - refactor: DBasicRepository.
