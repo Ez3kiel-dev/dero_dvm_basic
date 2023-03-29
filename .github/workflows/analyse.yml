@@ -1,10 +1,6 @@
-name: Dart CI
+name: Dart lint
 
-on:
-  pull_request:
-    branches: [ main ]
-  push:
-    branches: [ main ]
+on: [ push, pull_request ]
 
 jobs:
   analyse:
@@ -16,4 +12,3 @@ jobs:
       - run: dart pub get
       - run: dart format --output=none --set-exit-if-changed .
       - run: dart analyze
-      - run: dart test
