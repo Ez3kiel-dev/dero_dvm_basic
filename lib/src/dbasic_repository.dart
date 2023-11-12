@@ -22,7 +22,7 @@ class DBasicRepository {
   static Expression createArithmeticExpression(String rawExp) {
     var lexer = DeroBasicLexer();
     var res = lexer.buildFrom(lexer.arithmeticExpression()).end().parse(rawExp);
-    if (res.isSuccess) {
+    if (res is Success) {
       return Expression(res.value);
     } else {
       throw DBasicRepositoryException(
@@ -33,7 +33,7 @@ class DBasicRepository {
   static Expression createBooleanExpression(String rawExp) {
     var lexer = DeroBasicLexer();
     var res = lexer.buildFrom(lexer.booleanExpression()).end().parse(rawExp);
-    if (res.isSuccess) {
+    if (res is Success) {
       return Expression(res.value);
     } else {
       throw DBasicRepositoryException(
@@ -61,8 +61,8 @@ class DBasicRepository {
     } else {
       throw DBasicRepositoryException('No code has been loaded');
     }
-    if (parsedResult.isFailure) {
-      throw DBasicParserException((parsedResult as Failure));
+    if (parsedResult is Failure) {
+      throw DBasicParserException(parsedResult);
     }
     var functions = (parsedResult.value as List)
         .map((item) => item as DBasicFunction)

@@ -215,21 +215,15 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
   // -----------------------------------------------------------------
 
   dynamic _buildAST(List rawExpr) {
-    // print(rawExpr);
-
     var node = ASTNode();
 
     if (rawExpr[0] is ASTNode &&
         rawExpr[1] is List &&
         (rawExpr[1] as List).isEmpty) {
-      // print('AST NODE AND EMPTY LIST');
-
       node = rawExpr[0];
     } else if (rawExpr[0] is Token &&
         rawExpr[1] is List &&
         (rawExpr[1] as List).isEmpty) {
-      // print('TOKEN AND EMPTY LIST');
-
       if (rawExpr[0].value is List) {
         node = (rawExpr[0].value[1] as ASTNode).copyWith(parentheses: true);
       } else {
@@ -238,20 +232,14 @@ class DeroBasicLexer extends DeroBasicGrammarDefinition {
     } else if (rawExpr[0] is List &&
         rawExpr[1] is List &&
         (rawExpr[1] as List).isEmpty) {
-      // print('LIST AND EMPTY LIST');
-
       node = (rawExpr[0][1] as ASTNode).copyWith(parentheses: true);
     } else if (rawExpr[0] is ASTNode &&
         rawExpr[1] is List &&
         (rawExpr[1] as List).isNotEmpty) {
-      // print('AST NODE AND LIST');
-
       node = _buildSubTree(rawExpr[0], rawExpr[1]);
     } else if (rawExpr[0] is Token &&
         rawExpr[1] is List &&
         (rawExpr[1] as List).isNotEmpty) {
-      // print('TOKEN AND LIST');
-
       if (rawExpr[0].value is List) {
         node = _buildSubTree(
             (rawExpr[0].value[1] as ASTNode).copyWith(parentheses: true),

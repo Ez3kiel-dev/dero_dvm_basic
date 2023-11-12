@@ -95,22 +95,22 @@ class _$DBasicValueCopyWithImpl<$Res, $Val extends DBasicValue>
 }
 
 /// @nodoc
-abstract class _$$DBasicUint64CopyWith<$Res>
+abstract class _$$DBasicUint64ImplCopyWith<$Res>
     implements $DBasicValueCopyWith<$Res> {
-  factory _$$DBasicUint64CopyWith(
-          _$DBasicUint64 value, $Res Function(_$DBasicUint64) then) =
-      __$$DBasicUint64CopyWithImpl<$Res>;
+  factory _$$DBasicUint64ImplCopyWith(
+          _$DBasicUint64Impl value, $Res Function(_$DBasicUint64Impl) then) =
+      __$$DBasicUint64ImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DBasicType type, int valueUint64});
 }
 
 /// @nodoc
-class __$$DBasicUint64CopyWithImpl<$Res>
-    extends _$DBasicValueCopyWithImpl<$Res, _$DBasicUint64>
-    implements _$$DBasicUint64CopyWith<$Res> {
-  __$$DBasicUint64CopyWithImpl(
-      _$DBasicUint64 _value, $Res Function(_$DBasicUint64) _then)
+class __$$DBasicUint64ImplCopyWithImpl<$Res>
+    extends _$DBasicValueCopyWithImpl<$Res, _$DBasicUint64Impl>
+    implements _$$DBasicUint64ImplCopyWith<$Res> {
+  __$$DBasicUint64ImplCopyWithImpl(
+      _$DBasicUint64Impl _value, $Res Function(_$DBasicUint64Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$DBasicUint64CopyWithImpl<$Res>
     Object? type = null,
     Object? valueUint64 = null,
   }) {
-    return _then(_$DBasicUint64(
+    return _then(_$DBasicUint64Impl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -134,8 +134,8 @@ class __$$DBasicUint64CopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DBasicUint64 extends DBasicUint64 {
-  _$DBasicUint64({this.type = DBasicType.uint64, required this.valueUint64})
+class _$DBasicUint64Impl extends DBasicUint64 {
+  _$DBasicUint64Impl({this.type = DBasicType.uint64, required this.valueUint64})
       : super._();
 
   @override
@@ -153,7 +153,7 @@ class _$DBasicUint64 extends DBasicUint64 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DBasicUint64 &&
+            other is _$DBasicUint64Impl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.valueUint64, valueUint64) ||
                 other.valueUint64 == valueUint64));
@@ -165,8 +165,8 @@ class _$DBasicUint64 extends DBasicUint64 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DBasicUint64CopyWith<_$DBasicUint64> get copyWith =>
-      __$$DBasicUint64CopyWithImpl<_$DBasicUint64>(this, _$identity);
+  _$$DBasicUint64ImplCopyWith<_$DBasicUint64Impl> get copyWith =>
+      __$$DBasicUint64ImplCopyWithImpl<_$DBasicUint64Impl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -233,7 +233,8 @@ class _$DBasicUint64 extends DBasicUint64 {
 
 abstract class DBasicUint64 extends DBasicValue {
   factory DBasicUint64(
-      {final DBasicType type, required final int valueUint64}) = _$DBasicUint64;
+      {final DBasicType type,
+      required final int valueUint64}) = _$DBasicUint64Impl;
   DBasicUint64._() : super._();
 
   @override
@@ -241,27 +242,27 @@ abstract class DBasicUint64 extends DBasicValue {
   int get valueUint64;
   @override
   @JsonKey(ignore: true)
-  _$$DBasicUint64CopyWith<_$DBasicUint64> get copyWith =>
+  _$$DBasicUint64ImplCopyWith<_$DBasicUint64Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DBasicStringCopyWith<$Res>
+abstract class _$$DBasicStringImplCopyWith<$Res>
     implements $DBasicValueCopyWith<$Res> {
-  factory _$$DBasicStringCopyWith(
-          _$DBasicString value, $Res Function(_$DBasicString) then) =
-      __$$DBasicStringCopyWithImpl<$Res>;
+  factory _$$DBasicStringImplCopyWith(
+          _$DBasicStringImpl value, $Res Function(_$DBasicStringImpl) then) =
+      __$$DBasicStringImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DBasicType type, String valueString});
 }
 
 /// @nodoc
-class __$$DBasicStringCopyWithImpl<$Res>
-    extends _$DBasicValueCopyWithImpl<$Res, _$DBasicString>
-    implements _$$DBasicStringCopyWith<$Res> {
-  __$$DBasicStringCopyWithImpl(
-      _$DBasicString _value, $Res Function(_$DBasicString) _then)
+class __$$DBasicStringImplCopyWithImpl<$Res>
+    extends _$DBasicValueCopyWithImpl<$Res, _$DBasicStringImpl>
+    implements _$$DBasicStringImplCopyWith<$Res> {
+  __$$DBasicStringImplCopyWithImpl(
+      _$DBasicStringImpl _value, $Res Function(_$DBasicStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,7 +271,7 @@ class __$$DBasicStringCopyWithImpl<$Res>
     Object? type = null,
     Object? valueString = null,
   }) {
-    return _then(_$DBasicString(
+    return _then(_$DBasicStringImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -285,8 +286,8 @@ class __$$DBasicStringCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DBasicString extends DBasicString {
-  _$DBasicString({this.type = DBasicType.string, required this.valueString})
+class _$DBasicStringImpl extends DBasicString {
+  _$DBasicStringImpl({this.type = DBasicType.string, required this.valueString})
       : super._();
 
   @override
@@ -304,7 +305,7 @@ class _$DBasicString extends DBasicString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DBasicString &&
+            other is _$DBasicStringImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.valueString, valueString) ||
                 other.valueString == valueString));
@@ -316,8 +317,8 @@ class _$DBasicString extends DBasicString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DBasicStringCopyWith<_$DBasicString> get copyWith =>
-      __$$DBasicStringCopyWithImpl<_$DBasicString>(this, _$identity);
+  _$$DBasicStringImplCopyWith<_$DBasicStringImpl> get copyWith =>
+      __$$DBasicStringImplCopyWithImpl<_$DBasicStringImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -385,7 +386,7 @@ class _$DBasicString extends DBasicString {
 abstract class DBasicString extends DBasicValue {
   factory DBasicString(
       {final DBasicType type,
-      required final String valueString}) = _$DBasicString;
+      required final String valueString}) = _$DBasicStringImpl;
   DBasicString._() : super._();
 
   @override
@@ -393,6 +394,6 @@ abstract class DBasicString extends DBasicValue {
   String get valueString;
   @override
   @JsonKey(ignore: true)
-  _$$DBasicStringCopyWith<_$DBasicString> get copyWith =>
+  _$$DBasicStringImplCopyWith<_$DBasicStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

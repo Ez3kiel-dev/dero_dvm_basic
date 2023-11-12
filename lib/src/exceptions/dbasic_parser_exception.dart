@@ -1,4 +1,4 @@
-import 'package:petitparser/context.dart';
+import 'package:petitparser/core.dart';
 
 /// @nodoc
 class DBasicParserException implements Exception {

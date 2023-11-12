@@ -64,22 +64,22 @@ class _$DBasicSmartContractCopyWithImpl<$Res, $Val extends DBasicSmartContract>
 }
 
 /// @nodoc
-abstract class _$$_DBasicSmartContractCopyWith<$Res>
+abstract class _$$DBasicSmartContractImplCopyWith<$Res>
     implements $DBasicSmartContractCopyWith<$Res> {
-  factory _$$_DBasicSmartContractCopyWith(_$_DBasicSmartContract value,
-          $Res Function(_$_DBasicSmartContract) then) =
-      __$$_DBasicSmartContractCopyWithImpl<$Res>;
+  factory _$$DBasicSmartContractImplCopyWith(_$DBasicSmartContractImpl value,
+          $Res Function(_$DBasicSmartContractImpl) then) =
+      __$$DBasicSmartContractImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, Map<String, DBasicFunction> functions});
 }
 
 /// @nodoc
-class __$$_DBasicSmartContractCopyWithImpl<$Res>
-    extends _$DBasicSmartContractCopyWithImpl<$Res, _$_DBasicSmartContract>
-    implements _$$_DBasicSmartContractCopyWith<$Res> {
-  __$$_DBasicSmartContractCopyWithImpl(_$_DBasicSmartContract _value,
-      $Res Function(_$_DBasicSmartContract) _then)
+class __$$DBasicSmartContractImplCopyWithImpl<$Res>
+    extends _$DBasicSmartContractCopyWithImpl<$Res, _$DBasicSmartContractImpl>
+    implements _$$DBasicSmartContractImplCopyWith<$Res> {
+  __$$DBasicSmartContractImplCopyWithImpl(_$DBasicSmartContractImpl _value,
+      $Res Function(_$DBasicSmartContractImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +88,7 @@ class __$$_DBasicSmartContractCopyWithImpl<$Res>
     Object? name = freezed,
     Object? functions = null,
   }) {
-    return _then(_$_DBasicSmartContract(
+    return _then(_$DBasicSmartContractImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -103,8 +103,8 @@ class __$$_DBasicSmartContractCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DBasicSmartContract extends _DBasicSmartContract {
-  _$_DBasicSmartContract(
+class _$DBasicSmartContractImpl extends _DBasicSmartContract {
+  _$DBasicSmartContractImpl(
       {this.name, required final Map<String, DBasicFunction> functions})
       : _functions = functions,
         super._();
@@ -128,7 +128,7 @@ class _$_DBasicSmartContract extends _DBasicSmartContract {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DBasicSmartContract &&
+            other is _$DBasicSmartContractImpl &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
                 .equals(other._functions, _functions));
@@ -141,8 +141,8 @@ class _$_DBasicSmartContract extends _DBasicSmartContract {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DBasicSmartContractCopyWith<_$_DBasicSmartContract> get copyWith =>
-      __$$_DBasicSmartContractCopyWithImpl<_$_DBasicSmartContract>(
+  _$$DBasicSmartContractImplCopyWith<_$DBasicSmartContractImpl> get copyWith =>
+      __$$DBasicSmartContractImplCopyWithImpl<_$DBasicSmartContractImpl>(
           this, _$identity);
 }
 
@@ -150,7 +150,7 @@ abstract class _DBasicSmartContract extends DBasicSmartContract {
   factory _DBasicSmartContract(
           {final String? name,
           required final Map<String, DBasicFunction> functions}) =
-      _$_DBasicSmartContract;
+      _$DBasicSmartContractImpl;
   _DBasicSmartContract._() : super._();
 
   @override
@@ -159,6 +159,6 @@ abstract class _DBasicSmartContract extends DBasicSmartContract {
   Map<String, DBasicFunction> get functions;
   @override
   @JsonKey(ignore: true)
-  _$$_DBasicSmartContractCopyWith<_$_DBasicSmartContract> get copyWith =>
+  _$$DBasicSmartContractImplCopyWith<_$DBasicSmartContractImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

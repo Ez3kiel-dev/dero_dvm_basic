@@ -67,11 +67,11 @@ class _$ReturnStatementCopyWithImpl<$Res, $Val extends ReturnStatement>
 }
 
 /// @nodoc
-abstract class _$$_ReturnStatementCopyWith<$Res>
+abstract class _$$ReturnStatementImplCopyWith<$Res>
     implements $ReturnStatementCopyWith<$Res> {
-  factory _$$_ReturnStatementCopyWith(
-          _$_ReturnStatement value, $Res Function(_$_ReturnStatement) then) =
-      __$$_ReturnStatementCopyWithImpl<$Res>;
+  factory _$$ReturnStatementImplCopyWith(_$ReturnStatementImpl value,
+          $Res Function(_$ReturnStatementImpl) then) =
+      __$$ReturnStatementImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Expression expression});
@@ -81,11 +81,11 @@ abstract class _$$_ReturnStatementCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ReturnStatementCopyWithImpl<$Res>
-    extends _$ReturnStatementCopyWithImpl<$Res, _$_ReturnStatement>
-    implements _$$_ReturnStatementCopyWith<$Res> {
-  __$$_ReturnStatementCopyWithImpl(
-      _$_ReturnStatement _value, $Res Function(_$_ReturnStatement) _then)
+class __$$ReturnStatementImplCopyWithImpl<$Res>
+    extends _$ReturnStatementCopyWithImpl<$Res, _$ReturnStatementImpl>
+    implements _$$ReturnStatementImplCopyWith<$Res> {
+  __$$ReturnStatementImplCopyWithImpl(
+      _$ReturnStatementImpl _value, $Res Function(_$ReturnStatementImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$_ReturnStatementCopyWithImpl<$Res>
   $Res call({
     Object? expression = null,
   }) {
-    return _then(_$_ReturnStatement(
+    return _then(_$ReturnStatementImpl(
       expression: null == expression
           ? _value.expression
           : expression // ignore: cast_nullable_to_non_nullable
@@ -104,8 +104,8 @@ class __$$_ReturnStatementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReturnStatement extends _ReturnStatement {
-  _$_ReturnStatement({required this.expression}) : super._();
+class _$ReturnStatementImpl extends _ReturnStatement {
+  _$ReturnStatementImpl({required this.expression}) : super._();
 
   @override
   final Expression expression;
@@ -119,7 +119,7 @@ class _$_ReturnStatement extends _ReturnStatement {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReturnStatement &&
+            other is _$ReturnStatementImpl &&
             (identical(other.expression, expression) ||
                 other.expression == expression));
   }
@@ -130,19 +130,20 @@ class _$_ReturnStatement extends _ReturnStatement {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReturnStatementCopyWith<_$_ReturnStatement> get copyWith =>
-      __$$_ReturnStatementCopyWithImpl<_$_ReturnStatement>(this, _$identity);
+  _$$ReturnStatementImplCopyWith<_$ReturnStatementImpl> get copyWith =>
+      __$$ReturnStatementImplCopyWithImpl<_$ReturnStatementImpl>(
+          this, _$identity);
 }
 
 abstract class _ReturnStatement extends ReturnStatement {
   factory _ReturnStatement({required final Expression expression}) =
-      _$_ReturnStatement;
+      _$ReturnStatementImpl;
   _ReturnStatement._() : super._();
 
   @override
   Expression get expression;
   @override
   @JsonKey(ignore: true)
-  _$$_ReturnStatementCopyWith<_$_ReturnStatement> get copyWith =>
+  _$$ReturnStatementImplCopyWith<_$ReturnStatementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

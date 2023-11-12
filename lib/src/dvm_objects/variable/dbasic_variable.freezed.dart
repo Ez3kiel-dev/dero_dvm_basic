@@ -73,11 +73,11 @@ class _$DBasicVariableCopyWithImpl<$Res, $Val extends DBasicVariable>
 }
 
 /// @nodoc
-abstract class _$$_DBasicVariableCopyWith<$Res>
+abstract class _$$DBasicVariableImplCopyWith<$Res>
     implements $DBasicVariableCopyWith<$Res> {
-  factory _$$_DBasicVariableCopyWith(
-          _$_DBasicVariable value, $Res Function(_$_DBasicVariable) then) =
-      __$$_DBasicVariableCopyWithImpl<$Res>;
+  factory _$$DBasicVariableImplCopyWith(_$DBasicVariableImpl value,
+          $Res Function(_$DBasicVariableImpl) then) =
+      __$$DBasicVariableImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, DBasicValue value});
@@ -87,11 +87,11 @@ abstract class _$$_DBasicVariableCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DBasicVariableCopyWithImpl<$Res>
-    extends _$DBasicVariableCopyWithImpl<$Res, _$_DBasicVariable>
-    implements _$$_DBasicVariableCopyWith<$Res> {
-  __$$_DBasicVariableCopyWithImpl(
-      _$_DBasicVariable _value, $Res Function(_$_DBasicVariable) _then)
+class __$$DBasicVariableImplCopyWithImpl<$Res>
+    extends _$DBasicVariableCopyWithImpl<$Res, _$DBasicVariableImpl>
+    implements _$$DBasicVariableImplCopyWith<$Res> {
+  __$$DBasicVariableImplCopyWithImpl(
+      _$DBasicVariableImpl _value, $Res Function(_$DBasicVariableImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_DBasicVariableCopyWithImpl<$Res>
     Object? name = null,
     Object? value = null,
   }) {
-    return _then(_$_DBasicVariable(
+    return _then(_$DBasicVariableImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -115,8 +115,8 @@ class __$$_DBasicVariableCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DBasicVariable extends _DBasicVariable {
-  _$_DBasicVariable({required this.name, required this.value}) : super._();
+class _$DBasicVariableImpl extends _DBasicVariable {
+  _$DBasicVariableImpl({required this.name, required this.value}) : super._();
 
   @override
   final String name;
@@ -132,7 +132,7 @@ class _$_DBasicVariable extends _DBasicVariable {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DBasicVariable &&
+            other is _$DBasicVariableImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.value, value) || other.value == value));
   }
@@ -143,14 +143,15 @@ class _$_DBasicVariable extends _DBasicVariable {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DBasicVariableCopyWith<_$_DBasicVariable> get copyWith =>
-      __$$_DBasicVariableCopyWithImpl<_$_DBasicVariable>(this, _$identity);
+  _$$DBasicVariableImplCopyWith<_$DBasicVariableImpl> get copyWith =>
+      __$$DBasicVariableImplCopyWithImpl<_$DBasicVariableImpl>(
+          this, _$identity);
 }
 
 abstract class _DBasicVariable extends DBasicVariable {
   factory _DBasicVariable(
       {required final String name,
-      required final DBasicValue value}) = _$_DBasicVariable;
+      required final DBasicValue value}) = _$DBasicVariableImpl;
   _DBasicVariable._() : super._();
 
   @override
@@ -159,6 +160,6 @@ abstract class _DBasicVariable extends DBasicVariable {
   DBasicValue get value;
   @override
   @JsonKey(ignore: true)
-  _$$_DBasicVariableCopyWith<_$_DBasicVariable> get copyWith =>
+  _$$DBasicVariableImplCopyWith<_$DBasicVariableImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

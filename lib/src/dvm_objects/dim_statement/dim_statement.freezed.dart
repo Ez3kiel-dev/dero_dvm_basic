@@ -63,22 +63,22 @@ class _$DimStatementCopyWithImpl<$Res, $Val extends DimStatement>
 }
 
 /// @nodoc
-abstract class _$$_DimStatementCopyWith<$Res>
+abstract class _$$DimStatementImplCopyWith<$Res>
     implements $DimStatementCopyWith<$Res> {
-  factory _$$_DimStatementCopyWith(
-          _$_DimStatement value, $Res Function(_$_DimStatement) then) =
-      __$$_DimStatementCopyWithImpl<$Res>;
+  factory _$$DimStatementImplCopyWith(
+          _$DimStatementImpl value, $Res Function(_$DimStatementImpl) then) =
+      __$$DimStatementImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<String> identifiers, DBasicType declaredType});
 }
 
 /// @nodoc
-class __$$_DimStatementCopyWithImpl<$Res>
-    extends _$DimStatementCopyWithImpl<$Res, _$_DimStatement>
-    implements _$$_DimStatementCopyWith<$Res> {
-  __$$_DimStatementCopyWithImpl(
-      _$_DimStatement _value, $Res Function(_$_DimStatement) _then)
+class __$$DimStatementImplCopyWithImpl<$Res>
+    extends _$DimStatementCopyWithImpl<$Res, _$DimStatementImpl>
+    implements _$$DimStatementImplCopyWith<$Res> {
+  __$$DimStatementImplCopyWithImpl(
+      _$DimStatementImpl _value, $Res Function(_$DimStatementImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_DimStatementCopyWithImpl<$Res>
     Object? identifiers = null,
     Object? declaredType = null,
   }) {
-    return _then(_$_DimStatement(
+    return _then(_$DimStatementImpl(
       identifiers: null == identifiers
           ? _value._identifiers
           : identifiers // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$_DimStatementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DimStatement extends _DimStatement {
-  _$_DimStatement(
+class _$DimStatementImpl extends _DimStatement {
+  _$DimStatementImpl(
       {required final List<String> identifiers, required this.declaredType})
       : _identifiers = identifiers,
         super._();
@@ -128,7 +128,7 @@ class _$_DimStatement extends _DimStatement {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DimStatement &&
+            other is _$DimStatementImpl &&
             const DeepCollectionEquality()
                 .equals(other._identifiers, _identifiers) &&
             (identical(other.declaredType, declaredType) ||
@@ -142,14 +142,14 @@ class _$_DimStatement extends _DimStatement {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DimStatementCopyWith<_$_DimStatement> get copyWith =>
-      __$$_DimStatementCopyWithImpl<_$_DimStatement>(this, _$identity);
+  _$$DimStatementImplCopyWith<_$DimStatementImpl> get copyWith =>
+      __$$DimStatementImplCopyWithImpl<_$DimStatementImpl>(this, _$identity);
 }
 
 abstract class _DimStatement extends DimStatement {
   factory _DimStatement(
       {required final List<String> identifiers,
-      required final DBasicType declaredType}) = _$_DimStatement;
+      required final DBasicType declaredType}) = _$DimStatementImpl;
   _DimStatement._() : super._();
 
   @override
@@ -158,6 +158,6 @@ abstract class _DimStatement extends DimStatement {
   DBasicType get declaredType;
   @override
   @JsonKey(ignore: true)
-  _$$_DimStatementCopyWith<_$_DimStatement> get copyWith =>
+  _$$DimStatementImplCopyWith<_$DimStatementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

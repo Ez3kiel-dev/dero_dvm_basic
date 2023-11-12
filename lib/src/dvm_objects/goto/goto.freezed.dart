@@ -55,18 +55,20 @@ class _$GotoCopyWithImpl<$Res, $Val extends Goto>
 }
 
 /// @nodoc
-abstract class _$$_GotoCopyWith<$Res> implements $GotoCopyWith<$Res> {
-  factory _$$_GotoCopyWith(_$_Goto value, $Res Function(_$_Goto) then) =
-      __$$_GotoCopyWithImpl<$Res>;
+abstract class _$$GotoImplCopyWith<$Res> implements $GotoCopyWith<$Res> {
+  factory _$$GotoImplCopyWith(
+          _$GotoImpl value, $Res Function(_$GotoImpl) then) =
+      __$$GotoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int line});
 }
 
 /// @nodoc
-class __$$_GotoCopyWithImpl<$Res> extends _$GotoCopyWithImpl<$Res, _$_Goto>
-    implements _$$_GotoCopyWith<$Res> {
-  __$$_GotoCopyWithImpl(_$_Goto _value, $Res Function(_$_Goto) _then)
+class __$$GotoImplCopyWithImpl<$Res>
+    extends _$GotoCopyWithImpl<$Res, _$GotoImpl>
+    implements _$$GotoImplCopyWith<$Res> {
+  __$$GotoImplCopyWithImpl(_$GotoImpl _value, $Res Function(_$GotoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -74,7 +76,7 @@ class __$$_GotoCopyWithImpl<$Res> extends _$GotoCopyWithImpl<$Res, _$_Goto>
   $Res call({
     Object? line = null,
   }) {
-    return _then(_$_Goto(
+    return _then(_$GotoImpl(
       null == line
           ? _value.line
           : line // ignore: cast_nullable_to_non_nullable
@@ -85,8 +87,8 @@ class __$$_GotoCopyWithImpl<$Res> extends _$GotoCopyWithImpl<$Res, _$_Goto>
 
 /// @nodoc
 
-class _$_Goto extends _Goto {
-  _$_Goto(this.line) : super._();
+class _$GotoImpl extends _Goto {
+  _$GotoImpl(this.line) : super._();
 
   @override
   final int line;
@@ -100,7 +102,7 @@ class _$_Goto extends _Goto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Goto &&
+            other is _$GotoImpl &&
             (identical(other.line, line) || other.line == line));
   }
 
@@ -110,17 +112,18 @@ class _$_Goto extends _Goto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GotoCopyWith<_$_Goto> get copyWith =>
-      __$$_GotoCopyWithImpl<_$_Goto>(this, _$identity);
+  _$$GotoImplCopyWith<_$GotoImpl> get copyWith =>
+      __$$GotoImplCopyWithImpl<_$GotoImpl>(this, _$identity);
 }
 
 abstract class _Goto extends Goto {
-  factory _Goto(final int line) = _$_Goto;
+  factory _Goto(final int line) = _$GotoImpl;
   _Goto._() : super._();
 
   @override
   int get line;
   @override
   @JsonKey(ignore: true)
-  _$$_GotoCopyWith<_$_Goto> get copyWith => throw _privateConstructorUsedError;
+  _$$GotoImplCopyWith<_$GotoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

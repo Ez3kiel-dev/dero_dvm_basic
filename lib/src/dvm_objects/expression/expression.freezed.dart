@@ -67,11 +67,11 @@ class _$ExpressionCopyWithImpl<$Res, $Val extends Expression>
 }
 
 /// @nodoc
-abstract class _$$_ExpressionCopyWith<$Res>
+abstract class _$$ExpressionImplCopyWith<$Res>
     implements $ExpressionCopyWith<$Res> {
-  factory _$$_ExpressionCopyWith(
-          _$_Expression value, $Res Function(_$_Expression) then) =
-      __$$_ExpressionCopyWithImpl<$Res>;
+  factory _$$ExpressionImplCopyWith(
+          _$ExpressionImpl value, $Res Function(_$ExpressionImpl) then) =
+      __$$ExpressionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ASTNode tree});
@@ -81,11 +81,11 @@ abstract class _$$_ExpressionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ExpressionCopyWithImpl<$Res>
-    extends _$ExpressionCopyWithImpl<$Res, _$_Expression>
-    implements _$$_ExpressionCopyWith<$Res> {
-  __$$_ExpressionCopyWithImpl(
-      _$_Expression _value, $Res Function(_$_Expression) _then)
+class __$$ExpressionImplCopyWithImpl<$Res>
+    extends _$ExpressionCopyWithImpl<$Res, _$ExpressionImpl>
+    implements _$$ExpressionImplCopyWith<$Res> {
+  __$$ExpressionImplCopyWithImpl(
+      _$ExpressionImpl _value, $Res Function(_$ExpressionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$_ExpressionCopyWithImpl<$Res>
   $Res call({
     Object? tree = null,
   }) {
-    return _then(_$_Expression(
+    return _then(_$ExpressionImpl(
       null == tree
           ? _value.tree
           : tree // ignore: cast_nullable_to_non_nullable
@@ -104,8 +104,8 @@ class __$$_ExpressionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Expression extends _Expression {
-  _$_Expression(this.tree) : super._();
+class _$ExpressionImpl extends _Expression {
+  _$ExpressionImpl(this.tree) : super._();
 
   @override
   final ASTNode tree;
@@ -114,7 +114,7 @@ class _$_Expression extends _Expression {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Expression &&
+            other is _$ExpressionImpl &&
             (identical(other.tree, tree) || other.tree == tree));
   }
 
@@ -124,18 +124,18 @@ class _$_Expression extends _Expression {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExpressionCopyWith<_$_Expression> get copyWith =>
-      __$$_ExpressionCopyWithImpl<_$_Expression>(this, _$identity);
+  _$$ExpressionImplCopyWith<_$ExpressionImpl> get copyWith =>
+      __$$ExpressionImplCopyWithImpl<_$ExpressionImpl>(this, _$identity);
 }
 
 abstract class _Expression extends Expression {
-  factory _Expression(final ASTNode tree) = _$_Expression;
+  factory _Expression(final ASTNode tree) = _$ExpressionImpl;
   _Expression._() : super._();
 
   @override
   ASTNode get tree;
   @override
   @JsonKey(ignore: true)
-  _$$_ExpressionCopyWith<_$_Expression> get copyWith =>
+  _$$ExpressionImplCopyWith<_$ExpressionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

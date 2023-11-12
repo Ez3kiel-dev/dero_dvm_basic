@@ -73,11 +73,11 @@ class _$LetStatementCopyWithImpl<$Res, $Val extends LetStatement>
 }
 
 /// @nodoc
-abstract class _$$_LetStatementCopyWith<$Res>
+abstract class _$$LetStatementImplCopyWith<$Res>
     implements $LetStatementCopyWith<$Res> {
-  factory _$$_LetStatementCopyWith(
-          _$_LetStatement value, $Res Function(_$_LetStatement) then) =
-      __$$_LetStatementCopyWithImpl<$Res>;
+  factory _$$LetStatementImplCopyWith(
+          _$LetStatementImpl value, $Res Function(_$LetStatementImpl) then) =
+      __$$LetStatementImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String identifier, Expression expression});
@@ -87,11 +87,11 @@ abstract class _$$_LetStatementCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LetStatementCopyWithImpl<$Res>
-    extends _$LetStatementCopyWithImpl<$Res, _$_LetStatement>
-    implements _$$_LetStatementCopyWith<$Res> {
-  __$$_LetStatementCopyWithImpl(
-      _$_LetStatement _value, $Res Function(_$_LetStatement) _then)
+class __$$LetStatementImplCopyWithImpl<$Res>
+    extends _$LetStatementCopyWithImpl<$Res, _$LetStatementImpl>
+    implements _$$LetStatementImplCopyWith<$Res> {
+  __$$LetStatementImplCopyWithImpl(
+      _$LetStatementImpl _value, $Res Function(_$LetStatementImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_LetStatementCopyWithImpl<$Res>
     Object? identifier = null,
     Object? expression = null,
   }) {
-    return _then(_$_LetStatement(
+    return _then(_$LetStatementImpl(
       identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
@@ -115,8 +115,8 @@ class __$$_LetStatementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LetStatement extends _LetStatement {
-  _$_LetStatement({required this.identifier, required this.expression})
+class _$LetStatementImpl extends _LetStatement {
+  _$LetStatementImpl({required this.identifier, required this.expression})
       : super._();
 
   @override
@@ -133,7 +133,7 @@ class _$_LetStatement extends _LetStatement {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LetStatement &&
+            other is _$LetStatementImpl &&
             (identical(other.identifier, identifier) ||
                 other.identifier == identifier) &&
             (identical(other.expression, expression) ||
@@ -146,14 +146,14 @@ class _$_LetStatement extends _LetStatement {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LetStatementCopyWith<_$_LetStatement> get copyWith =>
-      __$$_LetStatementCopyWithImpl<_$_LetStatement>(this, _$identity);
+  _$$LetStatementImplCopyWith<_$LetStatementImpl> get copyWith =>
+      __$$LetStatementImplCopyWithImpl<_$LetStatementImpl>(this, _$identity);
 }
 
 abstract class _LetStatement extends LetStatement {
   factory _LetStatement(
       {required final String identifier,
-      required final Expression expression}) = _$_LetStatement;
+      required final Expression expression}) = _$LetStatementImpl;
   _LetStatement._() : super._();
 
   @override
@@ -162,6 +162,6 @@ abstract class _LetStatement extends LetStatement {
   Expression get expression;
   @override
   @JsonKey(ignore: true)
-  _$$_LetStatementCopyWith<_$_LetStatement> get copyWith =>
+  _$$LetStatementImplCopyWith<_$LetStatementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

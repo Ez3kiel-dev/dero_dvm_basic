@@ -1,3 +1,7 @@
+## 0.2.6
+
+- chore: dependencies upgrade.
+
 ## 0.2.5
 
 - chore: fix deprecated codes.

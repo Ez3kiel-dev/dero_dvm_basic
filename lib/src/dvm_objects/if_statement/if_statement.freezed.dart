@@ -101,11 +101,11 @@ class _$IfStatementCopyWithImpl<$Res, $Val extends IfStatement>
 }
 
 /// @nodoc
-abstract class _$$_IfStatementCopyWith<$Res>
+abstract class _$$IfStatementImplCopyWith<$Res>
     implements $IfStatementCopyWith<$Res> {
-  factory _$$_IfStatementCopyWith(
-          _$_IfStatement value, $Res Function(_$_IfStatement) then) =
-      __$$_IfStatementCopyWithImpl<$Res>;
+  factory _$$IfStatementImplCopyWith(
+          _$IfStatementImpl value, $Res Function(_$IfStatementImpl) then) =
+      __$$IfStatementImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Expression booleanExpression, Goto thenGoto, Goto? elseGoto});
@@ -119,11 +119,11 @@ abstract class _$$_IfStatementCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IfStatementCopyWithImpl<$Res>
-    extends _$IfStatementCopyWithImpl<$Res, _$_IfStatement>
-    implements _$$_IfStatementCopyWith<$Res> {
-  __$$_IfStatementCopyWithImpl(
-      _$_IfStatement _value, $Res Function(_$_IfStatement) _then)
+class __$$IfStatementImplCopyWithImpl<$Res>
+    extends _$IfStatementCopyWithImpl<$Res, _$IfStatementImpl>
+    implements _$$IfStatementImplCopyWith<$Res> {
+  __$$IfStatementImplCopyWithImpl(
+      _$IfStatementImpl _value, $Res Function(_$IfStatementImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +133,7 @@ class __$$_IfStatementCopyWithImpl<$Res>
     Object? thenGoto = null,
     Object? elseGoto = freezed,
   }) {
-    return _then(_$_IfStatement(
+    return _then(_$IfStatementImpl(
       booleanExpression: null == booleanExpression
           ? _value.booleanExpression
           : booleanExpression // ignore: cast_nullable_to_non_nullable
@@ -152,8 +152,8 @@ class __$$_IfStatementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IfStatement extends _IfStatement {
-  _$_IfStatement(
+class _$IfStatementImpl extends _IfStatement {
+  _$IfStatementImpl(
       {required this.booleanExpression, required this.thenGoto, this.elseGoto})
       : super._();
 
@@ -173,7 +173,7 @@ class _$_IfStatement extends _IfStatement {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IfStatement &&
+            other is _$IfStatementImpl &&
             (identical(other.booleanExpression, booleanExpression) ||
                 other.booleanExpression == booleanExpression) &&
             (identical(other.thenGoto, thenGoto) ||
@@ -189,15 +189,15 @@ class _$_IfStatement extends _IfStatement {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IfStatementCopyWith<_$_IfStatement> get copyWith =>
-      __$$_IfStatementCopyWithImpl<_$_IfStatement>(this, _$identity);
+  _$$IfStatementImplCopyWith<_$IfStatementImpl> get copyWith =>
+      __$$IfStatementImplCopyWithImpl<_$IfStatementImpl>(this, _$identity);
 }
 
 abstract class _IfStatement extends IfStatement {
   factory _IfStatement(
       {required final Expression booleanExpression,
       required final Goto thenGoto,
-      final Goto? elseGoto}) = _$_IfStatement;
+      final Goto? elseGoto}) = _$IfStatementImpl;
   _IfStatement._() : super._();
 
   @override
@@ -208,6 +208,6 @@ abstract class _IfStatement extends IfStatement {
   Goto? get elseGoto;
   @override
   @JsonKey(ignore: true)
-  _$$_IfStatementCopyWith<_$_IfStatement> get copyWith =>
+  _$$IfStatementImplCopyWith<_$IfStatementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

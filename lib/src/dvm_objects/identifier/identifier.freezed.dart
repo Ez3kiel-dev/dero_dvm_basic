@@ -57,22 +57,22 @@ class _$IdentifierCopyWithImpl<$Res, $Val extends Identifier>
 }
 
 /// @nodoc
-abstract class _$$_IdentifierCopyWith<$Res>
+abstract class _$$IdentifierImplCopyWith<$Res>
     implements $IdentifierCopyWith<$Res> {
-  factory _$$_IdentifierCopyWith(
-          _$_Identifier value, $Res Function(_$_Identifier) then) =
-      __$$_IdentifierCopyWithImpl<$Res>;
+  factory _$$IdentifierImplCopyWith(
+          _$IdentifierImpl value, $Res Function(_$IdentifierImpl) then) =
+      __$$IdentifierImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$_IdentifierCopyWithImpl<$Res>
-    extends _$IdentifierCopyWithImpl<$Res, _$_Identifier>
-    implements _$$_IdentifierCopyWith<$Res> {
-  __$$_IdentifierCopyWithImpl(
-      _$_Identifier _value, $Res Function(_$_Identifier) _then)
+class __$$IdentifierImplCopyWithImpl<$Res>
+    extends _$IdentifierCopyWithImpl<$Res, _$IdentifierImpl>
+    implements _$$IdentifierImplCopyWith<$Res> {
+  __$$IdentifierImplCopyWithImpl(
+      _$IdentifierImpl _value, $Res Function(_$IdentifierImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_IdentifierCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$_Identifier(
+    return _then(_$IdentifierImpl(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_IdentifierCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Identifier extends _Identifier {
-  _$_Identifier(this.name) : super._();
+class _$IdentifierImpl extends _Identifier {
+  _$IdentifierImpl(this.name) : super._();
 
   @override
   final String name;
@@ -106,7 +106,7 @@ class _$_Identifier extends _Identifier {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Identifier &&
+            other is _$IdentifierImpl &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -116,18 +116,18 @@ class _$_Identifier extends _Identifier {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IdentifierCopyWith<_$_Identifier> get copyWith =>
-      __$$_IdentifierCopyWithImpl<_$_Identifier>(this, _$identity);
+  _$$IdentifierImplCopyWith<_$IdentifierImpl> get copyWith =>
+      __$$IdentifierImplCopyWithImpl<_$IdentifierImpl>(this, _$identity);
 }
 
 abstract class _Identifier extends Identifier {
-  factory _Identifier(final String name) = _$_Identifier;
+  factory _Identifier(final String name) = _$IdentifierImpl;
   _Identifier._() : super._();
 
   @override
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_IdentifierCopyWith<_$_Identifier> get copyWith =>
+  _$$IdentifierImplCopyWith<_$IdentifierImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

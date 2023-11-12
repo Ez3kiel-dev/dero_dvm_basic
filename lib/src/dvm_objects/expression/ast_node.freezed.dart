@@ -111,10 +111,10 @@ class _$ASTNodeCopyWithImpl<$Res, $Val extends ASTNode>
 }
 
 /// @nodoc
-abstract class _$$_ASTNodeCopyWith<$Res> implements $ASTNodeCopyWith<$Res> {
-  factory _$$_ASTNodeCopyWith(
-          _$_ASTNode value, $Res Function(_$_ASTNode) then) =
-      __$$_ASTNodeCopyWithImpl<$Res>;
+abstract class _$$ASTNodeImplCopyWith<$Res> implements $ASTNodeCopyWith<$Res> {
+  factory _$$ASTNodeImplCopyWith(
+          _$ASTNodeImpl value, $Res Function(_$ASTNodeImpl) then) =
+      __$$ASTNodeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,10 +131,11 @@ abstract class _$$_ASTNodeCopyWith<$Res> implements $ASTNodeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ASTNodeCopyWithImpl<$Res>
-    extends _$ASTNodeCopyWithImpl<$Res, _$_ASTNode>
-    implements _$$_ASTNodeCopyWith<$Res> {
-  __$$_ASTNodeCopyWithImpl(_$_ASTNode _value, $Res Function(_$_ASTNode) _then)
+class __$$ASTNodeImplCopyWithImpl<$Res>
+    extends _$ASTNodeCopyWithImpl<$Res, _$ASTNodeImpl>
+    implements _$$ASTNodeImplCopyWith<$Res> {
+  __$$ASTNodeImplCopyWithImpl(
+      _$ASTNodeImpl _value, $Res Function(_$ASTNodeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -146,7 +147,7 @@ class __$$_ASTNodeCopyWithImpl<$Res>
     Object? left = freezed,
     Object? right = freezed,
   }) {
-    return _then(_$_ASTNode(
+    return _then(_$ASTNodeImpl(
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -173,8 +174,8 @@ class __$$_ASTNodeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ASTNode extends _ASTNode {
-  _$_ASTNode(
+class _$ASTNodeImpl extends _ASTNode {
+  _$ASTNodeImpl(
       {this.value,
       this.parentheses = false,
       this.operator,
@@ -198,7 +199,7 @@ class _$_ASTNode extends _ASTNode {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ASTNode &&
+            other is _$ASTNodeImpl &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.parentheses, parentheses) ||
                 other.parentheses == parentheses) &&
@@ -215,8 +216,8 @@ class _$_ASTNode extends _ASTNode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ASTNodeCopyWith<_$_ASTNode> get copyWith =>
-      __$$_ASTNodeCopyWithImpl<_$_ASTNode>(this, _$identity);
+  _$$ASTNodeImplCopyWith<_$ASTNodeImpl> get copyWith =>
+      __$$ASTNodeImplCopyWithImpl<_$ASTNodeImpl>(this, _$identity);
 }
 
 abstract class _ASTNode extends ASTNode {
@@ -225,7 +226,7 @@ abstract class _ASTNode extends ASTNode {
       final bool parentheses,
       final Operator? operator,
       final ASTNode? left,
-      final ASTNode? right}) = _$_ASTNode;
+      final ASTNode? right}) = _$ASTNodeImpl;
   _ASTNode._() : super._();
 
   @override
@@ -240,6 +241,6 @@ abstract class _ASTNode extends ASTNode {
   ASTNode? get right;
   @override
   @JsonKey(ignore: true)
-  _$$_ASTNodeCopyWith<_$_ASTNode> get copyWith =>
+  _$$ASTNodeImplCopyWith<_$ASTNodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -91,11 +91,11 @@ class _$DBasicFunctionCopyWithImpl<$Res, $Val extends DBasicFunction>
 }
 
 /// @nodoc
-abstract class _$$_DBasicFunctionCopyWith<$Res>
+abstract class _$$DBasicFunctionImplCopyWith<$Res>
     implements $DBasicFunctionCopyWith<$Res> {
-  factory _$$_DBasicFunctionCopyWith(
-          _$_DBasicFunction value, $Res Function(_$_DBasicFunction) then) =
-      __$$_DBasicFunctionCopyWithImpl<$Res>;
+  factory _$$DBasicFunctionImplCopyWith(_$DBasicFunctionImpl value,
+          $Res Function(_$DBasicFunctionImpl) then) =
+      __$$DBasicFunctionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$_DBasicFunctionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DBasicFunctionCopyWithImpl<$Res>
-    extends _$DBasicFunctionCopyWithImpl<$Res, _$_DBasicFunction>
-    implements _$$_DBasicFunctionCopyWith<$Res> {
-  __$$_DBasicFunctionCopyWithImpl(
-      _$_DBasicFunction _value, $Res Function(_$_DBasicFunction) _then)
+class __$$DBasicFunctionImplCopyWithImpl<$Res>
+    extends _$DBasicFunctionCopyWithImpl<$Res, _$DBasicFunctionImpl>
+    implements _$$DBasicFunctionImplCopyWith<$Res> {
+  __$$DBasicFunctionImplCopyWithImpl(
+      _$DBasicFunctionImpl _value, $Res Function(_$DBasicFunctionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_DBasicFunctionCopyWithImpl<$Res>
     Object? lineNumbersIndex = freezed,
     Object? lineNumbers = freezed,
   }) {
-    return _then(_$_DBasicFunction(
+    return _then(_$DBasicFunctionImpl(
       functionSignature: null == functionSignature
           ? _value.functionSignature
           : functionSignature // ignore: cast_nullable_to_non_nullable
@@ -147,8 +147,8 @@ class __$$_DBasicFunctionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DBasicFunction extends _DBasicFunction {
-  _$_DBasicFunction(
+class _$DBasicFunctionImpl extends _DBasicFunction {
+  _$DBasicFunctionImpl(
       {required this.functionSignature,
       final Map<int, DvmObject>? lines,
       final Map<int, int>? lineNumbersIndex,
@@ -199,7 +199,7 @@ class _$_DBasicFunction extends _DBasicFunction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DBasicFunction &&
+            other is _$DBasicFunctionImpl &&
             (identical(other.functionSignature, functionSignature) ||
                 other.functionSignature == functionSignature) &&
             const DeepCollectionEquality().equals(other._lines, _lines) &&
@@ -220,8 +220,9 @@ class _$_DBasicFunction extends _DBasicFunction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DBasicFunctionCopyWith<_$_DBasicFunction> get copyWith =>
-      __$$_DBasicFunctionCopyWithImpl<_$_DBasicFunction>(this, _$identity);
+  _$$DBasicFunctionImplCopyWith<_$DBasicFunctionImpl> get copyWith =>
+      __$$DBasicFunctionImplCopyWithImpl<_$DBasicFunctionImpl>(
+          this, _$identity);
 }
 
 abstract class _DBasicFunction extends DBasicFunction {
@@ -229,7 +230,7 @@ abstract class _DBasicFunction extends DBasicFunction {
       {required final DBasicFunctionSignature functionSignature,
       final Map<int, DvmObject>? lines,
       final Map<int, int>? lineNumbersIndex,
-      final List<int>? lineNumbers}) = _$_DBasicFunction;
+      final List<int>? lineNumbers}) = _$DBasicFunctionImpl;
   _DBasicFunction._() : super._();
 
   @override
@@ -242,6 +243,6 @@ abstract class _DBasicFunction extends DBasicFunction {
   List<int>? get lineNumbers;
   @override
   @JsonKey(ignore: true)
-  _$$_DBasicFunctionCopyWith<_$_DBasicFunction> get copyWith =>
+  _$$DBasicFunctionImplCopyWith<_$DBasicFunctionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

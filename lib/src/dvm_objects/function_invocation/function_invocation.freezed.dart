@@ -73,11 +73,11 @@ class _$FunctionInvocationCopyWithImpl<$Res, $Val extends FunctionInvocation>
 }
 
 /// @nodoc
-abstract class _$$_FunctionInvocationCopyWith<$Res>
+abstract class _$$FunctionInvocationImplCopyWith<$Res>
     implements $FunctionInvocationCopyWith<$Res> {
-  factory _$$_FunctionInvocationCopyWith(_$_FunctionInvocation value,
-          $Res Function(_$_FunctionInvocation) then) =
-      __$$_FunctionInvocationCopyWithImpl<$Res>;
+  factory _$$FunctionInvocationImplCopyWith(_$FunctionInvocationImpl value,
+          $Res Function(_$FunctionInvocationImpl) then) =
+      __$$FunctionInvocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Identifier id, List<Expression> params});
@@ -87,11 +87,11 @@ abstract class _$$_FunctionInvocationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FunctionInvocationCopyWithImpl<$Res>
-    extends _$FunctionInvocationCopyWithImpl<$Res, _$_FunctionInvocation>
-    implements _$$_FunctionInvocationCopyWith<$Res> {
-  __$$_FunctionInvocationCopyWithImpl(
-      _$_FunctionInvocation _value, $Res Function(_$_FunctionInvocation) _then)
+class __$$FunctionInvocationImplCopyWithImpl<$Res>
+    extends _$FunctionInvocationCopyWithImpl<$Res, _$FunctionInvocationImpl>
+    implements _$$FunctionInvocationImplCopyWith<$Res> {
+  __$$FunctionInvocationImplCopyWithImpl(_$FunctionInvocationImpl _value,
+      $Res Function(_$FunctionInvocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_FunctionInvocationCopyWithImpl<$Res>
     Object? id = null,
     Object? params = null,
   }) {
-    return _then(_$_FunctionInvocation(
+    return _then(_$FunctionInvocationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -115,8 +115,8 @@ class __$$_FunctionInvocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FunctionInvocation extends _FunctionInvocation {
-  _$_FunctionInvocation(
+class _$FunctionInvocationImpl extends _FunctionInvocation {
+  _$FunctionInvocationImpl(
       {required this.id, required final List<Expression> params})
       : _params = params,
         super._();
@@ -140,7 +140,7 @@ class _$_FunctionInvocation extends _FunctionInvocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FunctionInvocation &&
+            other is _$FunctionInvocationImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._params, _params));
   }
@@ -152,15 +152,15 @@ class _$_FunctionInvocation extends _FunctionInvocation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FunctionInvocationCopyWith<_$_FunctionInvocation> get copyWith =>
-      __$$_FunctionInvocationCopyWithImpl<_$_FunctionInvocation>(
+  _$$FunctionInvocationImplCopyWith<_$FunctionInvocationImpl> get copyWith =>
+      __$$FunctionInvocationImplCopyWithImpl<_$FunctionInvocationImpl>(
           this, _$identity);
 }
 
 abstract class _FunctionInvocation extends FunctionInvocation {
   factory _FunctionInvocation(
       {required final Identifier id,
-      required final List<Expression> params}) = _$_FunctionInvocation;
+      required final List<Expression> params}) = _$FunctionInvocationImpl;
   _FunctionInvocation._() : super._();
 
   @override
@@ -169,6 +169,6 @@ abstract class _FunctionInvocation extends FunctionInvocation {
   List<Expression> get params;
   @override
   @JsonKey(ignore: true)
-  _$$_FunctionInvocationCopyWith<_$_FunctionInvocation> get copyWith =>
+  _$$FunctionInvocationImplCopyWith<_$FunctionInvocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -83,11 +83,12 @@ class _$DBasicFunctionSignatureCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DBasicFunctionSignatureCopyWith<$Res>
+abstract class _$$DBasicFunctionSignatureImplCopyWith<$Res>
     implements $DBasicFunctionSignatureCopyWith<$Res> {
-  factory _$$_DBasicFunctionSignatureCopyWith(_$_DBasicFunctionSignature value,
-          $Res Function(_$_DBasicFunctionSignature) then) =
-      __$$_DBasicFunctionSignatureCopyWithImpl<$Res>;
+  factory _$$DBasicFunctionSignatureImplCopyWith(
+          _$DBasicFunctionSignatureImpl value,
+          $Res Function(_$DBasicFunctionSignatureImpl) then) =
+      __$$DBasicFunctionSignatureImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,12 +101,13 @@ abstract class _$$_DBasicFunctionSignatureCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DBasicFunctionSignatureCopyWithImpl<$Res>
+class __$$DBasicFunctionSignatureImplCopyWithImpl<$Res>
     extends _$DBasicFunctionSignatureCopyWithImpl<$Res,
-        _$_DBasicFunctionSignature>
-    implements _$$_DBasicFunctionSignatureCopyWith<$Res> {
-  __$$_DBasicFunctionSignatureCopyWithImpl(_$_DBasicFunctionSignature _value,
-      $Res Function(_$_DBasicFunctionSignature) _then)
+        _$DBasicFunctionSignatureImpl>
+    implements _$$DBasicFunctionSignatureImplCopyWith<$Res> {
+  __$$DBasicFunctionSignatureImplCopyWithImpl(
+      _$DBasicFunctionSignatureImpl _value,
+      $Res Function(_$DBasicFunctionSignatureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +117,7 @@ class __$$_DBasicFunctionSignatureCopyWithImpl<$Res>
     Object? params = freezed,
     Object? returnType = null,
   }) {
-    return _then(_$_DBasicFunctionSignature(
+    return _then(_$DBasicFunctionSignatureImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -134,8 +136,8 @@ class __$$_DBasicFunctionSignatureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DBasicFunctionSignature extends _DBasicFunctionSignature {
-  _$_DBasicFunctionSignature(
+class _$DBasicFunctionSignatureImpl extends _DBasicFunctionSignature {
+  _$DBasicFunctionSignatureImpl(
       {required this.id,
       final Map<Identifier, DBasicType>? params,
       required this.returnType})
@@ -166,7 +168,7 @@ class _$_DBasicFunctionSignature extends _DBasicFunctionSignature {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DBasicFunctionSignature &&
+            other is _$DBasicFunctionSignatureImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._params, _params) &&
             (identical(other.returnType, returnType) ||
@@ -180,17 +182,16 @@ class _$_DBasicFunctionSignature extends _DBasicFunctionSignature {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DBasicFunctionSignatureCopyWith<_$_DBasicFunctionSignature>
-      get copyWith =>
-          __$$_DBasicFunctionSignatureCopyWithImpl<_$_DBasicFunctionSignature>(
-              this, _$identity);
+  _$$DBasicFunctionSignatureImplCopyWith<_$DBasicFunctionSignatureImpl>
+      get copyWith => __$$DBasicFunctionSignatureImplCopyWithImpl<
+          _$DBasicFunctionSignatureImpl>(this, _$identity);
 }
 
 abstract class _DBasicFunctionSignature extends DBasicFunctionSignature {
   factory _DBasicFunctionSignature(
       {required final Identifier id,
       final Map<Identifier, DBasicType>? params,
-      required final DBasicType returnType}) = _$_DBasicFunctionSignature;
+      required final DBasicType returnType}) = _$DBasicFunctionSignatureImpl;
   _DBasicFunctionSignature._() : super._();
 
   @override
@@ -201,6 +202,6 @@ abstract class _DBasicFunctionSignature extends DBasicFunctionSignature {
   DBasicType get returnType;
   @override
   @JsonKey(ignore: true)
-  _$$_DBasicFunctionSignatureCopyWith<_$_DBasicFunctionSignature>
+  _$$DBasicFunctionSignatureImplCopyWith<_$DBasicFunctionSignatureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

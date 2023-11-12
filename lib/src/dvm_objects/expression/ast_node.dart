@@ -6,19 +6,6 @@ part 'ast_node.freezed.dart';
 /// AST node for Expression tree.
 @freezed
 class ASTNode with DvmObject, _$ASTNode {
-  /*DvmValue? value;
-  Operator? operator;
-  ASTNode? left;
-  ASTNode? right;
-  bool parentheses;
-
-  ASTNode(
-      {this.value,
-      this.operator,
-      this.left,
-      this.right,
-      this.parentheses = false});*/
-
   ASTNode._();
 
   factory ASTNode({
