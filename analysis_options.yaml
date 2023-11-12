@@ -2,5 +2,6 @@ include: package:lints/recommended.yaml
 
 analyzer:
   exclude:
+    - "example/dero_dvm_basic_example.dart"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
